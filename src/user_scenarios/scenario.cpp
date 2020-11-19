@@ -15,43 +15,43 @@
 #include "Constraint.h"
 #include "Coupling.h"
 
-#include "Turtle.h"
+#include "Ur5e.h"
 
 #include "Cmscgmres.h"
 #include "Event.h"
 #include "std_msgs/Bool.h"
 
-int main(int argc, char **argv){
+int main(int argc, char **argv) {
 
 //Initialize ros node
-ros::init(argc, argv, "controller");
+	ros::init(argc, argv, "controller");
 
-/****** Initialize Agent Instances ******/
+	/****** Initialize Agent Instances ******/
 	std::vector<Agent*> agentlist;
 
 
 	//Initialize: Turtle instance: ardrone1
-	Turtle* turtle0=new Turtle(agentlist.size());
-	//Turtle state={x,y,yaw} input={uforward,urotate}
+	Ur5e* ur5e = new Ur5e(agentlist.size());
+	//Ur5e state={x,y,yaw} input={uforward,urotate}
 	//Define penaltys of state Q and inputs R
-	double turtle0_init_p[]={ 
-			1.0,1.0,0.0, /*Q*/
-			1.0,0.5      /*R*/
+	double ur5e_init_p[] = {
+		0.0, 0.0, 0.0, 0.0, 0.0, 0.0, /*Q*/
+		1.0, 0.5     /*R*/
 	};
 	//Initial desired Pose
-	double turtle0_init_xdes[]={1,1,0};
-	turtle0->setInitialDesiredState(turtle0_init_xdes);
-	turtle0->setInitialParameter(turtle0_init_p);
-	turtle0->setStateSubscriberRosTopicName       ("/turtle1/pose");
-	turtle0->setDesiredStateSubscriberRosTopicName("/turtle1/desiredpose");
-	turtle0->setPublisherRosTopicName             ("/turtle1/cmd_vel");
-	agentlist.push_back(turtle0); /*add to agentlist*/
+	double ur5e_init_xdes[] = {1, 1, 0};
+	ur5e->setInitialDesiredState(ur5e_init_xdes);
+	ur5e->setInitialParameter(ur5e_init_p);
+	ur5e->setStateSubscriberRosTopicName       ("/joint_states");   // /joint_states
+	ur5e->setDesiredStateSubscriberRosTopicName("/scaled_pos_joint_traj_controller/follow_joint_trajectory/goal"); // //scaled_pos_joint_traj_controller/follow_joint_trajectory/goal
+	ur5e->setPublisherRosTopicName             ("/scaled_pos_joint_traj_controller/follow_joint_trajectory/"); // /scaled_pos_joint_traj_controller/follow_joint_trajector/scaled_pos_joint_traj_controller/follow_joint_trajectory
+	agentlist.push_back(ur5e); /*add to agentlist*/
 
-/****** Initialize Coupling Instances ******/
+	/****** Initialize Coupling Instances ******/
 	std::vector<Controller*> controllerlist;
 
 	//Initialize: Controller
-	Cmscgmres* controller1=new Cmscgmres(agentlist,controllerlist.size());
+	Cmscgmres* controller1 = new Cmscgmres(agentlist, controllerlist.size());
 	controller1->setHorizonDiskretization(10);
 	controller1->setHorizonLength(1);
 	controller1->setTolerance(1e-8);
@@ -64,11 +64,11 @@ ros::init(argc, argv, "controller");
 	controllerlist.push_back(controller1);
 
 
-/****** Initialize Events ******/
+	/****** Initialize Events ******/
 	std::vector<Event*> eventlist;
 
-/****** Initialize Scheduler ******/
-	Scheduler scheduler(argc,argv,controllerlist, eventlist);
+	/****** Initialize Scheduler ******/
+	Scheduler scheduler(argc, argv, controllerlist, eventlist);
 	scheduler.run_control(0.01);
 //	scheduler.run_vrep(0.01);
 //	scheduler.run_simulation(0.1,10);
