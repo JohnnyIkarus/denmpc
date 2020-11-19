@@ -54,10 +54,13 @@ public:
     std::vector<double>tmp(dim_x_, 0);
     //  double dt=(msg->header.stamp.nsec-subscriber0_old_msg_.header.stamp.nsec)*1.0e-9;
     //  if(dt>0){
-    // --> hier die 6 joint states?
-    tmp[0] = msg->x;
-    tmp[1] = msg->y;
-    tmp[2] = msg->theta;
+    // --> hier die 6 joint states? wird velocity evtl auch benötigt?
+    tmp[0] = msg->position[0];
+    tmp[1] = msg->position[1];
+    tmp[2] = msg->position[2];
+    tmp[3] = msg->position[3];
+    tmp[4] = msg->position[4];
+    tmp[5] = msg->position[5];
     this->setState(tmp);
     subscriber0_old_msg_ = *msg;
     // }
@@ -69,14 +72,18 @@ public:
     *ros_desired_state_subscribers_[0] = ros_node_.subscribe<control_msgs::FollowJointTrajectoryGoal>(rostopicname, 1, &Ur5e::subDesiredStateCallback, this);
   };
 
+  // same according to subStateCallback
   void subDesiredStateCallback(const control_msgs::FollowJointTrajectoryGoal::ConstPtr & msg) {
     std::vector<double> tmp(dim_x_, 0);
     //  double dt=(msg->header.stamp.nsec-subscriber1_old_msg_.header.stamp.nsec)*1.0e-9;
     //  if(dt>0){
 
-    tmp[0] = msg->x;
-    tmp[1] = msg->y;
-    tmp[2] = msg->theta;
+    tmp[0] = msg->goal.points.positions[0];
+    tmp[1] = msg->goal.points.positions[1];
+    tmp[2] = msg->goal.points.positions[2];
+    tmp[3] = msg->goal.points.positions[3];
+    tmp[4] = msg->goal.points.positions[4];
+    tmp[5] = msg->goal.points.positions[5];
     this->setDesiredState(tmp);
     subscriber1_old_msg_ = *msg;
     //  }
@@ -86,6 +93,7 @@ public:
     ros_publishers_[0]->shutdown();
     *ros_publishers_[0] = ros_node_.advertise<geometry_msgs::Twist>(rostopicname, 1); // --> goal
   };
+
   void rosPublishActuation() {
     geometry_msgs::Twist msg; // --> hier stattdessen goal
     msg.linear.x = u_[0];
@@ -96,6 +104,7 @@ public:
     msg.angular.z = u_[1];
     ros_publishers_[0]->publish(msg);
   }
+  
   void f(double  *out, double t, double *x, double *u, double *d, double *p);
   void dfdxlambda(double  *out, double t, double *x, double *u, double *d, double *p, double *lambda);
   void dfdulambda(double  *out, double t, double *x, double *u, double *d, double *p, double *lambda);
