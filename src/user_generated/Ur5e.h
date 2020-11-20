@@ -95,16 +95,21 @@ public:
   };
 
   void rosPublishActuation() {
-    geometry_msgs::Twist msg; // --> hier stattdessen goal
-    msg.linear.x = u_[0];
+    control_msgs::FollowJointTrajectoryGoal msg; // --> hier stattdessen control_msgs/FollowJointTrajectory Action
+    msg.trajectory = JointTrajectory;
+    msg.trajectory.joint_names = ; // <-----------
+    joint_angles = ;// <-----------
+    msg.trajectory.points = [JointTrajectoryPoint(positions = joint_angles, velocities = [0] * 6, time_from_start = roscpp.Duration(5.0))];
+
+    /*msg.linear.x = u_[0];
     msg.linear.y = 0;
     msg.linear.z = 0;
     msg.angular.x = 0;
     msg.angular.y = 0;
-    msg.angular.z = u_[1];
+    msg.angular.z = u_[1];*/
     ros_publishers_[0]->publish(msg);
   }
-  
+
   void f(double  *out, double t, double *x, double *u, double *d, double *p);
   void dfdxlambda(double  *out, double t, double *x, double *u, double *d, double *p, double *lambda);
   void dfdulambda(double  *out, double t, double *x, double *u, double *d, double *p, double *lambda);
