@@ -17,17 +17,17 @@
  *******************************************************/
 Ur5e::Ur5e(int id): Agent(id) {
     //Set initial values
-    dim_x_ = 3;
-    dim_xdes_ = 3;
-    dim_u_ = 2;
+    dim_x_ = 6;
+    dim_xdes_ = 6;
+    dim_u_ = ?; // Controls: hier wieder 6 angles?
     dim_udes_ = 2;
     dim_y_ = 0;
     dim_ydes_ = 0;
-    dim_p_ = 5;
+    dim_p_ = 5; // Parameters: was genau sind das?
     dim_d_ = 0;
-    dim_l_ = 1;
-    dim_v_ = 1;
-    dim_eq_ = 0;
+    dim_l_ = 1; // ?
+    dim_v_ = 1; // ?
+    dim_eq_ = 0; // ?
     dim_ineq_ = 2;
     //Allocate vectors
     x_     = defvector(dim_x_);
