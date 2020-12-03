@@ -34,7 +34,7 @@ add_message_files( FILES VrepInfo.msg)
 catkin_package(
   INCLUDE_DIRS ${catkin_INCLUDE_DIRS}
 #  LIBRARIES symbolic
-  CATKIN_DEPENDS roscpp rospy std_msgs message_runtime turtlesim
+  CATKIN_DEPENDS roscpp rospy std_msgs message_runtime 
   DEPENDS Boost
 )
 

@@ -1,6 +1,6 @@
 
 /**
- * @file    Ur5e.cpp
+ * @file    Ur5e_IKT.cpp
  * @Author  Jan Dentler (jan.dentler@uni.lu)
  *          University of Luxembourg
  * @date    Friday 24 November 2017
@@ -10,12 +10,12 @@
  *          Description of agent
  */
 
-#include <Ur5e.h>
+#include <Ur5e_IKT.h>
 
 /*******************************************************
  * Constructor                                         *
  *******************************************************/
-Ur5e::Ur5e(int id): Agent(id) {
+Ur5e_IKT::Ur5e_IKT(int id): Agent(id) {
     //Set initial values
     dim_x_ = 6;
     dim_xdes_ = 6;
@@ -49,7 +49,7 @@ Ur5e::Ur5e(int id): Agent(id) {
 
     //DEFINE ROS_NODE
     std::stringstream ss_ros_namespace;
-    ss_ros_namespace << "Ur5e" << "_id" << id_;
+    ss_ros_namespace << "Ur5e_IKT" << "_id" << id_;
     ros::NodeHandle nh(ss_ros_namespace.str());
     ros_node_ = nh;
     ROS_INFO("%s", ss_ros_namespace.str().c_str());
@@ -64,17 +64,17 @@ Ur5e::Ur5e(int id): Agent(id) {
     //Creating subscriber
     ros::Subscriber* sub0 = new ros::Subscriber();
     //Starting subscription
-    *sub0 = ros_node_.subscribe("pose", 1, &Ur5e::subStateCallback, this);
+    *sub0 = ros_node_.subscribe("pose", 1, &Ur5e_IKT::subStateCallback, this);
     //Adding subscriber to array
     ros_state_subscribers_.push_back(sub0);
     //Creating subscriber
     ros::Subscriber* sub1 = new ros::Subscriber();
     //Starting subscription
-    *sub1 = ros_node_.subscribe("desiredpose", 1, &Ur5e::subDesiredStateCallback, this);
+    *sub1 = ros_node_.subscribe("desiredpose", 1, &Ur5e_IKT::subDesiredStateCallback, this);
     //Adding subscriber to array
     ros_desired_state_subscribers_.push_back(sub1);
 }
-Ur5e::Ur5e(
+Ur5e_IKT::Ur5e_IKT(
     std::string state_subscriber_topic,
     std::string desired_state_subscriber_topic,
     std::string control_publish_topic,
@@ -85,7 +85,7 @@ Ur5e::Ur5e(
     double* init_p = NULL,
     double* init_d = NULL,
     int id = 0
-): Ur5e(id) {
+): Ur5e_IKT(id) {
     if (init_x != NULL) {this->setInitialState (init_x);};
     if (init_xdes != NULL) {this->setInitialDesiredState (init_xdes);};
     if (init_u != NULL) {this->setInitialControl (init_u);};
@@ -100,25 +100,25 @@ Ur5e::Ur5e(
 /********************************************************
  * System dynamics                                      *
  ********************************************************/
-void Ur5e::f(double  *out, double t, double *x, double *u, double *d, double *p) {
+void Ur5e_IKT::f(double  *out, double t, double *x, double *u, double *d, double *p) {
 #ifdef DEBUG_FUNCTION_TRACE
-    cout << "exec Ur5e::f(...)" << endl;
+    cout << "exec Ur5e_IKT::f(...)" << endl;
 #endif
     out[0] = u[0] * cos(x[2]);
     out[1] = u[0] * sin(x[2]);
     out[2] = u[1];
 }
-void Ur5e::dfdxlambda(double  *out, double t, double *x, double *u, double *d, double *p, double *lambda) {
+void Ur5e_IKT::dfdxlambda(double  *out, double t, double *x, double *u, double *d, double *p, double *lambda) {
 #ifdef DEBUG_FUNCTION_TRACE
-    cout << "exec Ur5e::dfdx(...)" << endl;
+    cout << "exec Ur5e_IKT::dfdx(...)" << endl;
 #endif
     out[0] = 0;
     out[1] = 0;
     out[2] = lambda[1] * u[0] * cos(x[2]) - lambda[0] * u[0] * sin(x[2]);
 }
-void Ur5e::dfdulambda(double  *out, double t, double *x, double *u, double *d, double *p, double *lambda) {
+void Ur5e_IKT::dfdulambda(double  *out, double t, double *x, double *u, double *d, double *p, double *lambda) {
 #ifdef DEBUG_FUNCTION_TRACE
-    cout << "exec Ur5e::dfdu(...)" << endl;
+    cout << "exec Ur5e_IKT::dfdu(...)" << endl;
 #endif
     out[0] = lambda[0] * cos(x[2]) + lambda[1] * sin(x[2]);
     out[1] = lambda[2];
@@ -127,23 +127,23 @@ void Ur5e::dfdulambda(double  *out, double t, double *x, double *u, double *d, d
 /********************************************************
  * Stage costs                                          *
  ********************************************************/
-void Ur5e::l(double  *out, double t, double *x, double *u, double *p, double *xdes, double *udes) {
+void Ur5e_IKT::l(double  *out, double t, double *x, double *u, double *p, double *xdes, double *udes) {
 #ifdef DEBUG_FUNCTION_TRACE
-    cout << "exec Ur5e::l(...)" << endl;
+    cout << "exec Ur5e_IKT::l(...)" << endl;
 #endif
     out[0] = p[3] * pow(-u[0] + udes[0], 2.) + p[4] * pow(-u[1] + udes[1], 2.) + p[0] * pow(-x[0] + xdes[0], 2.) + p[1] * pow(-x[1] + xdes[1], 2.) + p[2] * pow(-x[2] + xdes[2], 2.);
 }
-void Ur5e::dldx(double  *out, double t, double *x, double *u, double *p, double *xdes, double *udes) {
+void Ur5e_IKT::dldx(double  *out, double t, double *x, double *u, double *p, double *xdes, double *udes) {
 #ifdef DEBUG_FUNCTION_TRACE
-    cout << "exec Ur5e::dldx(...)" << endl;
+    cout << "exec Ur5e_IKT::dldx(...)" << endl;
 #endif
     out[0] = -2.*p[0] * (-x[0] + xdes[0]);
     out[1] = -2.*p[1] * (-x[1] + xdes[1]);
     out[2] = -2.*p[2] * (-x[2] + xdes[2]);
 }
-void Ur5e::dldu(double  *out, double t, double *x, double *u, double *p, double *xdes, double *udes) {
+void Ur5e_IKT::dldu(double  *out, double t, double *x, double *u, double *p, double *xdes, double *udes) {
 #ifdef DEBUG_FUNCTION_TRACE
-    cout << "exec Ur5e::dldu(...)" << endl;
+    cout << "exec Ur5e_IKT::dldu(...)" << endl;
 #endif
     out[0] = -2.*p[3] * (-u[0] + udes[0]);
     out[1] = -2.*p[4] * (-u[1] + udes[1]);
@@ -152,15 +152,15 @@ void Ur5e::dldu(double  *out, double t, double *x, double *u, double *p, double 
 /********************************************************
  * Final costs                                          *
  ********************************************************/
-void Ur5e::v(double  *out, double t, double *x, double *p, double *xdes) {
+void Ur5e_IKT::v(double  *out, double t, double *x, double *p, double *xdes) {
 #ifdef DEBUG_FUNCTION_TRACE
-    cout << "exec Ur5e::v(...)" << endl;
+    cout << "exec Ur5e_IKT::v(...)" << endl;
 #endif
     out[0] = p[0] * pow(-x[0] + xdes[0], 2.) + p[1] * pow(-x[1] + xdes[1], 2.) + p[2] * pow(-x[2] + xdes[2], 2.);
 }
-void Ur5e::dvdx(double  *out, double t, double *x, double *p, double *xdes) {
+void Ur5e_IKT::dvdx(double  *out, double t, double *x, double *p, double *xdes) {
 #ifdef DEBUG_FUNCTION_TRACE
-    cout << "exec Ur5e::dvdx(...)" << endl;
+    cout << "exec Ur5e_IKT::dvdx(...)" << endl;
 #endif
     out[0] = -2.*p[0] * (-x[0] + xdes[0]);
     out[1] = -2.*p[1] * (-x[1] + xdes[1]);
@@ -170,53 +170,53 @@ void Ur5e::dvdx(double  *out, double t, double *x, double *p, double *xdes) {
 /********************************************************
  * Inequality constraints                               *
  ********************************************************/
-void Ur5e::ci(double *out, double t, double *x, double *u, double *p, double *pc,  double *xdes, double *udes) {
+void Ur5e_IKT::ci(double *out, double t, double *x, double *u, double *p, double *pc,  double *xdes, double *udes) {
 #ifdef DEBUG_FUNCTION_TRACE
-    cout << "exec Ur5e::ci(...)" << endl;
+    cout << "exec Ur5e_IKT::ci(...)" << endl;
 #endif
     out[0] = -0.5 + 0.5 * pow(u[0], 2.);
     out[1] = -0.5 + 0.5 * pow(u[1], 2.);
 }
-void Ur5e::dcidxmui(double *out, double t, double *x, double *u, double *p, double *pc,  double *xdes, double *udes, double *mui) {
+void Ur5e_IKT::dcidxmui(double *out, double t, double *x, double *u, double *p, double *pc,  double *xdes, double *udes, double *mui) {
 #ifdef DEBUG_FUNCTION_TRACE
-    cout << "exec Ur5e::dcidxmui(...)" << endl;
+    cout << "exec Ur5e_IKT::dcidxmui(...)" << endl;
 #endif
     out[0] = 0;
     out[1] = 0;
     out[2] = 0;
 }
-void Ur5e::dcidumui(double *out, double t, double *x, double *u, double *p, double *pc,  double *xdes, double *udes, double *mui) {
+void Ur5e_IKT::dcidumui(double *out, double t, double *x, double *u, double *p, double *pc,  double *xdes, double *udes, double *mui) {
 #ifdef DEBUG_FUNCTION_TRACE
-    cout << "exec Ur5e::dcidumui(...)" << endl;
+    cout << "exec Ur5e_IKT::dcidumui(...)" << endl;
 #endif
     out[0] = mui[0] * u[0];
     out[1] = mui[1] * u[1];
 }
-void Ur5e::cia(double  *out, double t, double *x, double *u, double *p, double *pc,  double *xdes, double *udes, double *slack) {
+void Ur5e_IKT::cia(double  *out, double t, double *x, double *u, double *p, double *pc,  double *xdes, double *udes, double *slack) {
 #ifdef DEBUG_FUNCTION_TRACE
-    cout << "exec Ur5e::cia(...)" << endl;
+    cout << "exec Ur5e_IKT::cia(...)" << endl;
 #endif
     out[0] = -0.5 + pow(slack[0], 2.) + 0.5 * pow(u[0], 2.);
     out[1] = -0.5 + pow(slack[1], 2.) + 0.5 * pow(u[1], 2.);
 }
-void Ur5e::dciadxmui(double  *out, double t, double *x, double *u, double *p, double *pc,  double *xdes, double *udes, double *mui, double *slack) {
+void Ur5e_IKT::dciadxmui(double  *out, double t, double *x, double *u, double *p, double *pc,  double *xdes, double *udes, double *mui, double *slack) {
 #ifdef DEBUG_FUNCTION_TRACE
-    cout << "exec Ur5e::dciadxmui(...)" << endl;
+    cout << "exec Ur5e_IKT::dciadxmui(...)" << endl;
 #endif
     out[0] = 0;
     out[1] = 0;
     out[2] = 0;
 }
-void Ur5e::dciadumui(double  *out, double t, double *x, double *u, double *p, double *pc,  double *xdes, double *udes, double *mui, double *slack) {
+void Ur5e_IKT::dciadumui(double  *out, double t, double *x, double *u, double *p, double *pc,  double *xdes, double *udes, double *mui, double *slack) {
 #ifdef DEBUG_FUNCTION_TRACE
-    cout << "exec Ur5e::dciadumui(...)" << endl;
+    cout << "exec Ur5e_IKT::dciadumui(...)" << endl;
 #endif
     out[0] = mui[0] * u[0];
     out[1] = mui[1] * u[1];
 }
-void Ur5e::dciadamui(double  *out, double t, double *x, double *u, double *p, double *pc,  double *xdes, double *udes, double *mui, double *slack) {
+void Ur5e_IKT::dciadamui(double  *out, double t, double *x, double *u, double *p, double *pc,  double *xdes, double *udes, double *mui, double *slack) {
 #ifdef DEBUG_FUNCTION_TRACE
-    cout << "exec Ur5e::dciadamui(...)" << endl;
+    cout << "exec Ur5e_IKT::dciadamui(...)" << endl;
 #endif
     out[0] = 0;
     out[1] = 0;

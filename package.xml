@@ -31,8 +31,8 @@
   <run_depend>std_msgs</run_depend>
 
   <!--   JUST NEEDED FOR TURTLESIM TUTORIAL -->
-  <build_depend>turtlesim</build_depend>
-  <run_depend>turtlesim</run_depend>
+  <!--<build_depend>turtlesim</build_depend>
+  <run_depend>turtlesim</run_depend>-->
   
 
 <export>

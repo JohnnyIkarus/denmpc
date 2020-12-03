@@ -15,7 +15,7 @@
 #include "Constraint.h"
 #include "Coupling.h"
 
-#include "Ur5e.h"
+#include "Ur5e_IKT.h"
 
 #include "Cmscgmres.h"
 #include "Event.h"
@@ -31,7 +31,7 @@ int main(int argc, char **argv) {
 
 
 	//Initialize: Turtle instance: ardrone1
-	Ur5e* ur5e = new Ur5e(agentlist.size());
+	Ur5e_IKT* ur5e = new Ur5e_IKT(agentlist.size());
 	//Ur5e state={x,y,yaw} input={uforward,urotate}
 	//Define penaltys of state Q and inputs R
 	double ur5e_init_p[] = {
