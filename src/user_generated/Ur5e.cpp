@@ -19,7 +19,7 @@ Ur5e::Ur5e(int id): Agent(id) {
     //Set initial values
     dim_x_ = 6;
     dim_xdes_ = 6;
-    dim_u_ = ?; // Controls: hier wieder 6 angles?
+    dim_u_ = 6; // Controls: hier wieder 6 angles? ja
     dim_udes_ = 2;
     dim_y_ = 0;
     dim_ydes_ = 0;

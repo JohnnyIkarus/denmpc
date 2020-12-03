@@ -8,13 +8,15 @@
 #include <Agent.h>
 //#include <sensor_msg/JointState.h> //--> TODO
 #include <control_msgs/FollowJointTrajectoryGoal.h>
+#include <ros/ros.h>
+#include <trajectory_msgs/JointTrajectory.h>
 /******************************************************
 * Agent                                               *
 *******************************************************/
 
 class Ur5e: public Agent {
-  ur5e::JointTrajectoryControllerState subscriber0_old_msg_; //hier evtl Unternachricht "desired"
-  ur5e::JointTrajectoryControllerState subscriber1_old_msg_;
+  Ur5e::JointTrajectoryControllerState subscriber0_old_msg_; //hier evtl Unternachricht "desired"
+  Ur5e::JointTrajectoryControllerState subscriber1_old_msg_;
 
 public:
   Ur5e(int id = 0);
@@ -33,7 +35,7 @@ public:
 
   void setStateSubscriberRosTopicName(std::string rostopicname) {
     ros_state_subscribers_[0]->shutdown();
-    *ros_state_subscribers_[0] = ros_node_.subscribe<ur5e::JointState>(rostopicname, 1, &Ur5e::subStateCallback, this);
+    *ros_state_subscribers_[0] = ros_node_.subscribe<Ur5e::JointState>(rostopicname, 1, &Ur5e::subStateCallback, this);
   };
 
 // changed from JointTrajectoryControllerState to JointState
@@ -50,7 +52,7 @@ public:
   float64 y
   float64 theta
   */
-  void subStateCallback(const ur5e::JointState::ConstPtr& msg) {
+  void subStateCallback(const Ur5e::JointState::ConstPtr& msg) {
     std::vector<double>tmp(dim_x_, 0);
     //  double dt=(msg->header.stamp.nsec-subscriber0_old_msg_.header.stamp.nsec)*1.0e-9;
     //  if(dt>0){
@@ -78,7 +80,8 @@ public:
     //  double dt=(msg->header.stamp.nsec-subscriber1_old_msg_.header.stamp.nsec)*1.0e-9;
     //  if(dt>0){
 
-    tmp[0] = msg->goal.points.positions[0];
+    // hier kann ich nicht auf goal so zugreifen. goal wird am Anfang der Klasse nur als String initialisiert
+    tmp[0] = msg->goal.points.positions[0]; 
     tmp[1] = msg->goal.points.positions[1];
     tmp[2] = msg->goal.points.positions[2];
     tmp[3] = msg->goal.points.positions[3];
@@ -95,11 +98,44 @@ public:
   };
 
   void rosPublishActuation() {
-    control_msgs::FollowJointTrajectoryGoal msg; // --> hier stattdessen control_msgs/FollowJointTrajectory Action
-    msg.trajectory = JointTrajectory;
-    msg.trajectory.joint_names = ; // <-----------
-    joint_angles = ;// <-----------
-    msg.trajectory.points = [JointTrajectoryPoint(positions = joint_angles, velocities = [0] * 6, time_from_start = roscpp.Duration(5.0))];
+    control_msgs::FollowJointTrajectoryGoal goal; // --> hier stattdessen control_msgs/FollowJointTrajectory Action
+
+    // First, the joint names, which apply to all waypoints [shoulder_pan_joint, shoulder_lift_joint, elbow_joint, wrist_1_joint, wrist_2_joint, wrist_3_joint]
+    goal.trajectory.joint_names.push_back("shoulder_pan_joint");
+    goal.trajectory.joint_names.push_back("shoulder_lift_joint");
+    goal.trajectory.joint_names.push_back("elbow_joint");
+    goal.trajectory.joint_names.push_back("wrist_1_joint");
+    goal.trajectory.joint_names.push_back("wrist_2_joint");
+    goal.trajectory.joint_names.push_back("wrist_3_joint");
+
+    //joint_angles = a;// <----------- woher kommen die angles?
+
+    goal.trajectory.points.resize(1);
+
+    // First trajectory point
+    // Positions
+    int ind = 0;
+    goal.trajectory.points[ind].positions.resize(6); // ###### hier müssen die joint_anlges rein
+    goal.trajectory.points[ind].positions[0] = u_[0];
+    goal.trajectory.points[ind].positions[1] = u_[1];
+    goal.trajectory.points[ind].positions[2] = u_[2];
+    goal.trajectory.points[ind].positions[3] = u_[3];
+    goal.trajectory.points[ind].positions[4] = u_[4];
+    goal.trajectory.points[ind].positions[5] = u_[5];
+    goal.trajectory.points[ind].time_from_start = ros::Duration(5.0);
+    goal.trajectory.points[ind].velocities.resize(6);
+    for (size_t j = 0; j < 8; ++j)
+    {
+      goal.trajectory.points[ind].velocities[j] = 0.5;//1.0;
+    }
+
+    
+
+    //trajectory_msgs::JointTrajectoryPoint point(positions = joint_angles, velocities = [0] * 6, time_from_start = roscpp.Duration(5.0));
+    //trajectory_msgs::JointTrajectoryPoint points[1] = { };
+    //points[0] = point;
+
+    //goal.trajectory.points[0] = points;
 
     /*msg.linear.x = u_[0];
     msg.linear.y = 0;
@@ -127,7 +163,6 @@ public:
   void dciadamui(double  *out, double t, double *x, double *u, double *p, double *pc,  double *xdes, double *udes, double *mui, double *slack);
 };
 #endif
-
 
 /*
 ***********
