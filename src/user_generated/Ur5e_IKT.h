@@ -59,7 +59,7 @@ public:
     //  if(dt>0){
     // --> hier die 6 joint states? wird velocity evtl auch benötigt?
     int ind = 0;
-    tmp[0] = msg->trajectory.points[ind].positions[0]; 
+    tmp[0] = msg->trajectory.points[ind].positions[0];
     tmp[1] = msg->trajectory.points[ind].positions[1];
     tmp[2] = msg->trajectory.points[ind].positions[2];
     tmp[3] = msg->trajectory.points[ind].positions[3];
@@ -80,9 +80,7 @@ public:
   void subDesiredStateCallback(const control_msgs::FollowJointTrajectoryGoal::ConstPtr & msg) {
     std::vector<double> tmp(dim_x_, 0);
     //  double dt=(msg->header.stamp.nsec-subscriber1_old_msg_.header.stamp.nsec)*1.0e-9;
-    //  if(dt>0){
-
-    
+    //  if(dt>0){  
     int ind = 0;
     tmp[0] = msg->trajectory.points[ind].positions[0]; 
     tmp[1] = msg->trajectory.points[ind].positions[1];

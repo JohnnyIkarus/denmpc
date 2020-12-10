@@ -20,7 +20,7 @@ Ur5e_IKT::Ur5e_IKT(int id): Agent(id) {
     dim_x_ = 6;
     dim_xdes_ = 6;
     dim_u_ = 6; // Controls: hier wieder 6 angles? ja
-    dim_udes_ = 2;
+    dim_udes_ = 6;
     dim_y_ = 0;
     dim_ydes_ = 0;
     dim_p_ = 5; // Parameters: was genau sind das?
