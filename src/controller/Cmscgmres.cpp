@@ -62,6 +62,7 @@ Cmscgmres::Cmscgmres(std::vector<Agent*> _listofagents, int _id,
 	onemzetahdir_= 1 - zeta_*hdir_;
 
 	init();
+	printf("<-------------------INIT DONE (Debug print)------------------->\\");
 	//Set flag true, as memory is allocated
 	flag_memoryalreadyallocated_=true;
 
@@ -196,6 +197,7 @@ void Cmscgmres::freeMemory(){
 
 //void Cmscgmres::calcControlUpdate(double globaltime,double* presentpose,double* desiredpose)
 void Cmscgmres::computeAction(double t) {
+	printf("<-------------------computeAction (Debug print)------------------->\\");
 	int i;
 	ts_ = t + ht_;
 	//Get Time
@@ -216,13 +218,14 @@ void Cmscgmres::computeAction(double t) {
 		MathLib::mprint(log_stringstream_,dim_u_conc_,u_conc_,  "u");
 		MathLib::mprint(log_stringstream_,dim_udes_conc_,udes_conc_,"udes");
 	}
+
 	if(flag_show_controllertrace_){
 		MathLib::mprint(log_stringstream_,dim_x_conc_, x1_, "x1");
 	}
 
 	//Excert Control Calculations
 	unew(t,x_conc_,x1_,optvar_conc_);
-
+	printf("<-------------------unew DONE(Debug print)------------------->\\");
 	if(flag_show_controllerinfo_){
 		log_stringstream_<<"Horizon thor:"<<thor_<<std::endl;
 		log_stringstream_<<"Cmscgmres loop calc time: "<<ros::Time::now().toSec() - clock<<" sec\n"<<std::endl;
@@ -315,6 +318,7 @@ void Cmscgmres::adufunc(unsigned n, double *du, double *adu) {
 
 void Cmscgmres::unew(double t, double x[], double x1[], double u[])
 {
+	printf("<-------------------unew (Debug print)------------------->\\");
 	int i;
 	double x2[dim_x_conc_];
 

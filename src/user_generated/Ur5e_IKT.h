@@ -95,7 +95,7 @@ public:
 
   void setPublisherRosTopicName(std::string rostopicname) {
     ros_publishers_[0]->shutdown();
-    *ros_publishers_[0] = ros_node_.advertise<geometry_msgs::Twist>(rostopicname, 1); // --> goal
+    *ros_publishers_[0] = ros_node_.advertise<control_msgs::FollowJointTrajectoryGoal>(rostopicname, 1); // --> goal
   };
 
   void rosPublishActuation() {

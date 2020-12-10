@@ -36,10 +36,11 @@ int main(int argc, char **argv) {
 	//Define penaltys of state Q and inputs R
 	double ur5e_init_p[] = {
 		0.0, 0.0, 0.0, 0.0, 0.0, 0.0, /*Q*/
-		1.0, 0.5     /*R*/
+		1.0, 0.5, 0.0, 0.0, 0.0, 0.0    /*R*/
 	};
 	//Initial desired Pose
-	double ur5e_init_xdes[] = {1, 1, 0};
+	double ur5e_init_xdes[] = {1.57, -1.57, 1.57,-1.57,1.57,1.57};
+
 	ur5e->setInitialDesiredState(ur5e_init_xdes);
 	ur5e->setInitialParameter(ur5e_init_p);
 	ur5e->setStateSubscriberRosTopicName       ("/joint_states");   // /joint_states
