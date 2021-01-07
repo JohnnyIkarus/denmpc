@@ -57,20 +57,20 @@ Ur5e_IKT::Ur5e_IKT(int id): Agent(id) {
     //Creating control publisher
     ros::Publisher* pub0 = new ros::Publisher();
     //Starting Advertising
-    *pub0 = ros_node_.advertise<control_msgs::JointTrajectoryControllerState>("/scaled_pos_int_traj_controller/follow_joint_trajectory", 1); //TODO: Welches Topic welche NAchricht?
+    *pub0 = ros_node_.advertise<control_msgs::FollowJointTrajectoryAction>("/scaled_pos_joint_traj_controller/follow_joint_trajectory", 1); //TODO: Welches Topic welche NAchricht?
     //Adding publisher to array
     ros_publishers_.push_back(pub0);
 
     //Creating subscriber
     ros::Subscriber* sub0 = new ros::Subscriber();
     //Starting subscription
-    *sub0 = ros_node_.subscribe("joint_states", 1, &Ur5e_IKT::subStateCallback, this);//TODO: Welches Topic welche NAchricht?
+    *sub0 = ros_node_.subscribe("/scaled_pos_joint_traj_controller/state", 1, &Ur5e_IKT::subStateCallback, this);//TODO: Welches Topic welche NAchricht?
     //Adding subscriber to array
     ros_state_subscribers_.push_back(sub0);
     //Creating subscriber
     ros::Subscriber* sub1 = new ros::Subscriber();
     //Starting subscription
-    *sub1 = ros_node_.subscribe("follow_joint_trajectory_goal", 1, &Ur5e_IKT::subDesiredStateCallback, this);//TODO: Welches Topic welche NAchricht?
+    *sub1 = ros_node_.subscribe("/scaled_pos_joint_traj_controller/follow_joint_trajectory/goal", 1, &Ur5e_IKT::subDesiredStateCallback, this);//TODO: Welches Topic welche NAchricht?
     //Adding subscriber to array
     ros_desired_state_subscribers_.push_back(sub1);
 }

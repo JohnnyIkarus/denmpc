@@ -8,6 +8,7 @@
 #include <Agent.h>
 #include <sensor_msgs/JointState.h> //--> TODO
 #include <control_msgs/FollowJointTrajectoryGoal.h>
+#include <control_msgs/FollowJointTrajectoryAction.h>
 #include <control_msgs/JointTrajectoryControllerState.h>
 #include <ros/ros.h>
 #include <trajectory_msgs/JointTrajectory.h>
@@ -36,8 +37,11 @@ public:
   );
 
   void setStateSubscriberRosTopicName(std::string rostopicname) {
+    ROS_INFO("setStateSubscriberRosTopicName");
     ros_state_subscribers_[0]->shutdown();
     *ros_state_subscribers_[0] = ros_node_.subscribe<control_msgs::JointTrajectoryControllerState>(rostopicname, 1, &Ur5e_IKT::subStateCallback, this);
+    ROS_INFO("setStateSubscriberRosTopicName-finished");
+    ROS_INFO("--------------");
   };
 
 // changed from JointTrajectoryControllerState to JointState
@@ -55,8 +59,13 @@ public:
   float64 theta
   */
   void subStateCallback(const control_msgs::JointTrajectoryControllerState::ConstPtr& msg) {
-    //ROS_DEBUG("subStateCallback");
-    //ROS_DEBUG(" [%s]", msg->actual);
+    ROS_INFO("subStateCallback");
+    ROS_INFO("[%f]", msg->actual.positions[0]);
+    ROS_INFO("[%f]", msg->actual.positions[1]);
+    ROS_INFO("[%f]", msg->actual.positions[2]);
+    ROS_INFO("[%f]", msg->actual.positions[3]);
+    ROS_INFO("[%f]", msg->actual.positions[4]);
+    ROS_INFO("[%f]", msg->actual.positions[5]);
     std::vector<double>tmp(dim_x_, 0);
     //  double dt=(msg->header.stamp.nsec-subscriber0_old_msg_.header.stamp.nsec)*1.0e-9;
     //  if(dt>0){
@@ -70,19 +79,29 @@ public:
     tmp[5] = msg->actual.positions[5];
     this->setState(tmp);
     subscriber0_old_msg_ = *msg;
+    ROS_INFO("subStateCallback-finished");
+    ROS_INFO("--------------");
     // }
   };
 
   // changed from <ur5e::FollowJointTrajectoryGoal> to <control_msgs::FollowJointTrajectoryGoal>
   void setDesiredStateSubscriberRosTopicName(std::string rostopicname) {
+    ROS_INFO("setDesiredStateSubscriberRosTopicName");
     ros_desired_state_subscribers_[0]->shutdown();
     *ros_desired_state_subscribers_[0] = ros_node_.subscribe<control_msgs::JointTrajectoryControllerState>(rostopicname, 1, &Ur5e_IKT::subDesiredStateCallback, this);
+    ROS_INFO("setDesiredStateSubscriberRosTopicName - finished");
   };
 
   // same according to subStateCallback
   void subDesiredStateCallback(const control_msgs::JointTrajectoryControllerState::ConstPtr & msg) { 
-    ROS_DEBUG("subDesiredStateCallback");
-    ROS_DEBUG(" [%s]", msg->actual);
+    ROS_INFO("subDesiredStateCallback");
+    ROS_INFO("[%f]", msg->actual.positions[0]);
+    ROS_INFO("[%f]", msg->actual.positions[1]);
+    ROS_INFO("[%f]", msg->actual.positions[2]);
+    ROS_INFO("[%f]", msg->actual.positions[3]);
+    ROS_INFO("[%f]", msg->actual.positions[4]);
+    ROS_INFO("[%f]", msg->actual.positions[5]);
+    ROS_INFO("--------------");
     std::vector<double> tmp(dim_x_, 0);
     //  double dt=(msg->header.stamp.nsec-subscriber1_old_msg_.header.stamp.nsec)*1.0e-9;
     //  if(dt>0){  
@@ -96,6 +115,8 @@ public:
     this->setDesiredState(tmp);
     subscriber1_old_msg_ = *msg;
     //  }
+    ROS_INFO("subDesiredStateCallback-finished");
+    ROS_INFO("--------------");
   }
 
   void setPublisherRosTopicName(std::string rostopicname) {
@@ -105,7 +126,7 @@ public:
 
   void rosPublishActuation() {
     control_msgs::FollowJointTrajectoryGoal goal; // --> hier stattdessen control_msgs/FollowJointTrajectory Action
-
+    ROS_INFO("rosPublishActuation");
     // First, the joint names, which apply to all waypoints
     goal.trajectory.joint_names.push_back("shoulder_pan_joint");
     goal.trajectory.joint_names.push_back("shoulder_lift_joint");
@@ -149,7 +170,9 @@ public:
     msg.angular.x = 0;
     msg.angular.y = 0;
     msg.angular.z = u_[1];*/
+    //ROS_INFO("rosPublishActuation-finished");
     ros_publishers_[0]->publish(goal);
+    
   }
 
   void f(double  *out, double t, double *x, double *u, double *d, double *p);
