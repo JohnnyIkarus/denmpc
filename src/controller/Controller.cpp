@@ -66,11 +66,13 @@ void Controller::getMeasurements(){
 }
 
 void Controller::applyAction(){
+	printf("Apply Action started\n");
 	for(int it_agent=0;it_agent<agentlist_.size();it_agent++){
 		tmp_agent_ptr_=agentlist_[it_agent];
 		tmp_agent_ptr_->setControl(u_conc_+tmp_agent_ptr_->index_u_);
 		tmp_agent_ptr_->rosPublishActuation();
 	}
+	printf("Apply Action finished\n");
 };
 
 Controller::~Controller(){

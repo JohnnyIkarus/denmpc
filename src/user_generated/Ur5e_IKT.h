@@ -6,24 +6,25 @@
 #define Ur5e_IKT_H_
 
 #include <Agent.h>
-//#include <sensor_msg/JointState.h> //--> TODO
+#include <sensor_msgs/JointState.h> //--> TODO
 #include <control_msgs/FollowJointTrajectoryGoal.h>
 #include <control_msgs/JointTrajectoryControllerState.h>
 #include <ros/ros.h>
 #include <trajectory_msgs/JointTrajectory.h>
+#include <ros/console.h>
 /******************************************************
 * Agent                                               *
 *******************************************************/
 
 class Ur5e_IKT: public Agent {
-  control_msgs::FollowJointTrajectoryGoal subscriber0_old_msg_; //hier evtl Unternachricht "desired" oder: FollowJointTrajectoryGoal
-  control_msgs::FollowJointTrajectoryGoal subscriber1_old_msg_;
+  control_msgs::JointTrajectoryControllerState subscriber0_old_msg_; //hier evtl Unternachricht "desired" oder: FollowJointTrajectoryGoal
+  control_msgs::JointTrajectoryControllerState subscriber1_old_msg_;
 
 public:
   Ur5e_IKT(int id = 0);
   Ur5e_IKT(
     std::string joint_states, // joint_states
-    std::string goal, // goal
+    std::string follow_joint_trajectory_goal, // goal
     std::string follow_joint_trajectory, // /scaled_pos_joint_traj_controller/follow_joint_trajectory
     double* init_x,
     double* init_xdes,
@@ -36,7 +37,7 @@ public:
 
   void setStateSubscriberRosTopicName(std::string rostopicname) {
     ros_state_subscribers_[0]->shutdown();
-    *ros_state_subscribers_[0] = ros_node_.subscribe<control_msgs::FollowJointTrajectoryGoal>(rostopicname, 1, &Ur5e_IKT::subStateCallback, this);
+    *ros_state_subscribers_[0] = ros_node_.subscribe<control_msgs::JointTrajectoryControllerState>(rostopicname, 1, &Ur5e_IKT::subStateCallback, this);
   };
 
 // changed from JointTrajectoryControllerState to JointState
@@ -53,18 +54,20 @@ public:
   float64 y
   float64 theta
   */
-  void subStateCallback(const control_msgs::FollowJointTrajectoryGoal::ConstPtr& msg) {
+  void subStateCallback(const control_msgs::JointTrajectoryControllerState::ConstPtr& msg) {
+    //ROS_DEBUG("subStateCallback");
+    //ROS_DEBUG(" [%s]", msg->actual);
     std::vector<double>tmp(dim_x_, 0);
     //  double dt=(msg->header.stamp.nsec-subscriber0_old_msg_.header.stamp.nsec)*1.0e-9;
     //  if(dt>0){
     // --> hier die 6 joint states? wird velocity evtl auch benötigt?
     int ind = 0;
-    tmp[0] = msg->trajectory.points[ind].positions[0];
-    tmp[1] = msg->trajectory.points[ind].positions[1];
-    tmp[2] = msg->trajectory.points[ind].positions[2];
-    tmp[3] = msg->trajectory.points[ind].positions[3];
-    tmp[4] = msg->trajectory.points[ind].positions[4];
-    tmp[5] = msg->trajectory.points[ind].positions[5];
+    tmp[0] = msg->actual.positions[0];
+    tmp[1] = msg->actual.positions[1];
+    tmp[2] = msg->actual.positions[2];
+    tmp[3] = msg->actual.positions[3];
+    tmp[4] = msg->actual.positions[4];
+    tmp[5] = msg->actual.positions[5];
     this->setState(tmp);
     subscriber0_old_msg_ = *msg;
     // }
@@ -73,21 +76,23 @@ public:
   // changed from <ur5e::FollowJointTrajectoryGoal> to <control_msgs::FollowJointTrajectoryGoal>
   void setDesiredStateSubscriberRosTopicName(std::string rostopicname) {
     ros_desired_state_subscribers_[0]->shutdown();
-    *ros_desired_state_subscribers_[0] = ros_node_.subscribe<control_msgs::FollowJointTrajectoryGoal>(rostopicname, 1, &Ur5e_IKT::subDesiredStateCallback, this);
+    *ros_desired_state_subscribers_[0] = ros_node_.subscribe<control_msgs::JointTrajectoryControllerState>(rostopicname, 1, &Ur5e_IKT::subDesiredStateCallback, this);
   };
 
   // same according to subStateCallback
-  void subDesiredStateCallback(const control_msgs::FollowJointTrajectoryGoal::ConstPtr & msg) {
+  void subDesiredStateCallback(const control_msgs::JointTrajectoryControllerState::ConstPtr & msg) { 
+    ROS_DEBUG("subDesiredStateCallback");
+    ROS_DEBUG(" [%s]", msg->actual);
     std::vector<double> tmp(dim_x_, 0);
     //  double dt=(msg->header.stamp.nsec-subscriber1_old_msg_.header.stamp.nsec)*1.0e-9;
     //  if(dt>0){  
     int ind = 0;
-    tmp[0] = msg->trajectory.points[ind].positions[0]; 
-    tmp[1] = msg->trajectory.points[ind].positions[1];
-    tmp[2] = msg->trajectory.points[ind].positions[2];
-    tmp[3] = msg->trajectory.points[ind].positions[3];
-    tmp[4] = msg->trajectory.points[ind].positions[4];
-    tmp[5] = msg->trajectory.points[ind].positions[5];
+    tmp[0] = msg->actual.positions[0];
+    tmp[1] = msg->actual.positions[1];
+    tmp[2] = msg->actual.positions[2];
+    tmp[3] = msg->actual.positions[3];
+    tmp[4] = msg->actual.positions[4];
+    tmp[5] = msg->actual.positions[5];
     this->setDesiredState(tmp);
     subscriber1_old_msg_ = *msg;
     //  }

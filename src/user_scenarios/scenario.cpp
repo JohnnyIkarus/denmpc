@@ -33,7 +33,7 @@ int main(int argc, char **argv) {
 	//Initialize: Turtle instance: ardrone1
 	Ur5e_IKT* ur5e = new Ur5e_IKT(agentlist.size());
 	//Ur5e state={x,y,yaw} input={uforward,urotate}
-	//Define penaltys of state Q and inputs R
+	//Define penaltys of state Q and inputs R --> woher stammen die Werte?
 	double ur5e_init_p[] = {
 		0.0, 0.0, 0.0, 0.0, 0.0, 0.0, /*Q*/
 		1.0, 0.5, 0.0, 0.0, 0.0, 0.0    /*R*/
@@ -43,7 +43,9 @@ int main(int argc, char **argv) {
 
 	ur5e->setInitialDesiredState(ur5e_init_xdes);
 	ur5e->setInitialParameter(ur5e_init_p);
-	ur5e->setStateSubscriberRosTopicName       ("/joint_states");   // /joint_states
+	ur5e->setStateSubscriberRosTopicName       ("/scaled_pos_joint_traj_controller/state");   // /joint_states
+	/*** [ERROR] [1609327773.204441014]: Client [/controller] wants topic /joint_states to have datatype/md5sum [control_msgs/FollowJointTrajectoryGoal/69636787b6ecbde4d61d711979bc7ecb], but our version has [sensor_msgs/JointState/3066dcd76a6cfaef579bd0f34173e9fd]. Dropping connection.
+	 /**/ 
 	ur5e->setDesiredStateSubscriberRosTopicName("/scaled_pos_joint_traj_controller/follow_joint_trajectory/goal"); // //scaled_pos_joint_traj_controller/follow_joint_trajectory/goal
 	ur5e->setPublisherRosTopicName             ("/scaled_pos_joint_traj_controller/follow_joint_trajectory/"); // /scaled_pos_joint_traj_controller/follow_joint_trajector/scaled_pos_joint_traj_controller/follow_joint_trajectory
 	agentlist.push_back(ur5e); /*add to agentlist*/

@@ -197,7 +197,8 @@ void Cmscgmres::freeMemory(){
 
 //void Cmscgmres::calcControlUpdate(double globaltime,double* presentpose,double* desiredpose)
 void Cmscgmres::computeAction(double t) {
-	printf("<-------------------computeAction (Debug print)------------------->\\");
+	printf("<-------------------computeAction (Debug print)------------------->\n");
+	printf("flag_show_controllerstates_: %s \n", flag_show_controllerstates_ ? "true" : "false");
 	int i;
 	ts_ = t + ht_;
 	//Get Time
@@ -225,18 +226,20 @@ void Cmscgmres::computeAction(double t) {
 
 	//Excert Control Calculations
 	unew(t,x_conc_,x1_,optvar_conc_);
-	printf("<-------------------unew DONE(Debug print)------------------->\\");
+	printf("<-------------------unew DONE(Debug print)------------------->\n");
 	if(flag_show_controllerinfo_){
 		log_stringstream_<<"Horizon thor:"<<thor_<<std::endl;
 		log_stringstream_<<"Cmscgmres loop calc time: "<<ros::Time::now().toSec() - clock<<" sec\n"<<std::endl;
 	}
 	//Publish Computation time
+	printf("<-------------------Publish Computation time------------------->\n");
 	std_msgs::Float32 comptime;
 	comptime.data=(ros::Time::now().toSec() - clock);
 	comp_time_publisher_.publish(comptime);
 
 	bool flag_control_isnan=false;
 	//Check if output is NAN
+	printf("<-------------------Check if output is NAN------------------->\n");
 	for(i=0;i<dim_u_conc_;i++){
 		if(std::isnan(u_conc_[i])){
 			flag_control_isnan=true;
@@ -272,7 +275,9 @@ void Cmscgmres::computeAction(double t) {
 	std::cout<<log_stringstream_.str();
 	log_stringstream_.str("");
 
+	printf("<-------------------controlcounter_++;------------------->\n");
 	controlcounter_++;
+	
 }
 
 void Cmscgmres::dhu0func(unsigned dimu, double *du0, double *dhu) {
@@ -318,7 +323,7 @@ void Cmscgmres::adufunc(unsigned n, double *du, double *adu) {
 
 void Cmscgmres::unew(double t, double x[], double x1[], double u[])
 {
-	printf("<-------------------unew (Debug print)------------------->\\");
+	printf("<-------------------unew (Debug print)------------------->\n");
 	int i;
 	double x2[dim_x_conc_];
 
