@@ -26,9 +26,9 @@ public:
   Ur5e_IKT(int id = 0);
   Ur5e_IKT(
     // Strings werden aktuell nicht verwendet
-    //std::string joint_states, // Aktueller Zustand
-    //std::string follow_joint_trajectory_goal, // Zielposition
-    //std::string follow_joint_trajectory, // /scaled_pos_joint_traj_controller/follow_joint_trajectory
+    std::string joint_states, // Aktueller Zustand
+    std::string follow_joint_trajectory_goal, // Zielposition
+    std::string follow_joint_trajectory, // /scaled_pos_joint_traj_controller/follow_joint_trajectory
 
     double* init_x,   //States
     double* init_xdes,//Desired States
