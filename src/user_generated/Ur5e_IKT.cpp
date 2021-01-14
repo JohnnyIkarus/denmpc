@@ -17,17 +17,17 @@
  *******************************************************/
 Ur5e_IKT::Ur5e_IKT(int id): Agent(id) {
     //Set initial values
-    dim_x_ = 6;
-    dim_xdes_ = 6;
-    dim_u_ = 6; // Controls: hier wieder 6 angles? ja
-    dim_udes_ = 6;
+    dim_x_ = 6;     //States
+    dim_xdes_ = 6;  //Desired States
+    dim_u_ = 6;     //Controls , joint_angles
+    dim_udes_ = 6;  //Desired Controls
     dim_y_ = 0;
     dim_ydes_ = 0;
-    dim_p_ = 5; // Parameters: was genau sind das?
-    dim_d_ = 0;
-    dim_l_ = 1; // ?
-    dim_v_ = 1; // ?
-    dim_eq_ = 0; // ?
+    dim_p_ = 5;     // Parameters: was genau sind das?
+    dim_d_ = 0;     //Disturbance
+    dim_l_ = 1;     // ?
+    dim_v_ = 1;     // ?
+    dim_eq_ = 0;    // ?
     dim_ineq_ = 2;
     //Allocate vectors
     x_     = defvector(dim_x_);

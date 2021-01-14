@@ -6,7 +6,7 @@
 #define Ur5e_IKT_H_
 
 #include <Agent.h>
-#include <sensor_msgs/JointState.h> //--> TODO
+#include <sensor_msgs/JointState.h> 
 #include <control_msgs/FollowJointTrajectoryGoal.h>
 #include <control_msgs/FollowJointTrajectoryAction.h>
 #include <control_msgs/JointTrajectoryControllerState.h>
@@ -18,25 +18,29 @@
 *******************************************************/
 
 class Ur5e_IKT: public Agent {
-  control_msgs::JointTrajectoryControllerState subscriber0_old_msg_; //hier evtl Unternachricht "desired" oder: FollowJointTrajectoryGoal
+  //letzte Nachrichten die Empfangen wurden
+  control_msgs::JointTrajectoryControllerState subscriber0_old_msg_; 
   control_msgs::JointTrajectoryControllerState subscriber1_old_msg_;
 
 public:
   Ur5e_IKT(int id = 0);
   Ur5e_IKT(
-    std::string joint_states, // joint_states
-    std::string follow_joint_trajectory_goal, // goal
-    std::string follow_joint_trajectory, // /scaled_pos_joint_traj_controller/follow_joint_trajectory
-    double* init_x,
-    double* init_xdes,
-    double* init_u,
-    double* init_udes,
-    double* init_p,
-    double* init_d,
-    int id
+    // Strings werden aktuell nicht verwendet
+    //std::string joint_states, // Aktueller Zustand
+    //std::string follow_joint_trajectory_goal, // Zielposition
+    //std::string follow_joint_trajectory, // /scaled_pos_joint_traj_controller/follow_joint_trajectory
+
+    double* init_x,   //States
+    double* init_xdes,//Desired States
+    double* init_u,   //Controls
+    double* init_udes,//Desired Controls
+    double* init_p,   //Parameters
+    double* init_d,   //Disturbance
+    int id            //ID of the agent
   );
 
   void setStateSubscriberRosTopicName(std::string rostopicname) {
+    //setzen des Ros Topics für aktuellen Roboterzustand
     ROS_INFO("setStateSubscriberRosTopicName");
     ros_state_subscribers_[0]->shutdown();
     *ros_state_subscribers_[0] = ros_node_.subscribe<control_msgs::JointTrajectoryControllerState>(rostopicname, 1, &Ur5e_IKT::subStateCallback, this);
@@ -44,21 +48,9 @@ public:
     ROS_INFO("--------------");
   };
 
-// changed from JointTrajectoryControllerState to JointState
-  /*
-  Header header
 
-  string[] name
-  float64[] position
-  float64[] velocity
-  float64[] effort
-
-  ursprünglich geometry_msgs/Pose2D.msg:
-  float64 x
-  float64 y
-  float64 theta
-  */
   void subStateCallback(const control_msgs::JointTrajectoryControllerState::ConstPtr& msg) {
+    // Setzt aktuelle Nachricht des subscribed topics als zustand
     ROS_INFO("subStateCallback");
     ROS_INFO("[%f]", msg->actual.positions[0]);
     ROS_INFO("[%f]", msg->actual.positions[1]);
@@ -84,15 +76,14 @@ public:
     // }
   };
 
-  // changed from <ur5e::FollowJointTrajectoryGoal> to <control_msgs::FollowJointTrajectoryGoal>
   void setDesiredStateSubscriberRosTopicName(std::string rostopicname) {
+    // setzen des topics für gewünschten Roboterzustand
     ROS_INFO("setDesiredStateSubscriberRosTopicName");
     ros_desired_state_subscribers_[0]->shutdown();
     *ros_desired_state_subscribers_[0] = ros_node_.subscribe<control_msgs::JointTrajectoryControllerState>(rostopicname, 1, &Ur5e_IKT::subDesiredStateCallback, this);
     ROS_INFO("setDesiredStateSubscriberRosTopicName - finished");
   };
 
-  // same according to subStateCallback
   void subDesiredStateCallback(const control_msgs::JointTrajectoryControllerState::ConstPtr & msg) { 
     ROS_INFO("subDesiredStateCallback");
     ROS_INFO("[%f]", msg->actual.positions[0]);
@@ -125,7 +116,7 @@ public:
   };
 
   void rosPublishActuation() {
-    control_msgs::FollowJointTrajectoryGoal goal; // --> hier stattdessen control_msgs/FollowJointTrajectory Action
+    control_msgs::FollowJointTrajectoryGoal goal; 
     ROS_INFO("rosPublishActuation");
     // First, the joint names, which apply to all waypoints
     goal.trajectory.joint_names.push_back("shoulder_pan_joint");
@@ -135,42 +126,26 @@ public:
     goal.trajectory.joint_names.push_back("wrist_2_joint");
     goal.trajectory.joint_names.push_back("wrist_3_joint");
 
-    //joint_angles = a;// <----------- woher kommen die angles?
-
     goal.trajectory.points.resize(1);
 
     // First trajectory point
     // Positions
     int ind = 0;
-    goal.trajectory.points[ind].positions.resize(6); // ###### hier müssen die joint_anlges rein
-    goal.trajectory.points[ind].positions[0] = u_[0];
+    goal.trajectory.points[ind].positions.resize(6); 
+    goal.trajectory.points[ind].positions[0] = u_[0]; // joint_anlges 
     goal.trajectory.points[ind].positions[1] = u_[1];
     goal.trajectory.points[ind].positions[2] = u_[2];
     goal.trajectory.points[ind].positions[3] = u_[3];
     goal.trajectory.points[ind].positions[4] = u_[4];
     goal.trajectory.points[ind].positions[5] = u_[5];
-    goal.trajectory.points[ind].time_from_start = ros::Duration(5.0);
+    goal.trajectory.points[ind].time_from_start = ros::Duration(5.0); //Zeit für Ausführung
     goal.trajectory.points[ind].velocities.resize(6);
     for (size_t j = 0; j < 8; ++j)
     {
-      goal.trajectory.points[ind].velocities[j] = 0.5;//1.0;
+      goal.trajectory.points[ind].velocities[j] = 0.5;//1.0; 
     }
 
-    
-
-    //trajectory_msgs::JointTrajectoryPoint point(positions = joint_angles, velocities = [0] * 6, time_from_start = roscpp.Duration(5.0));
-    //trajectory_msgs::JointTrajectoryPoint points[1] = { };
-    //points[0] = point;
-
-    //goal.trajectory.points[0] = points;
-
-    /*msg.linear.x = u_[0];
-    msg.linear.y = 0;
-    msg.linear.z = 0;
-    msg.angular.x = 0;
-    msg.angular.y = 0;
-    msg.angular.z = u_[1];*/
-    //ROS_INFO("rosPublishActuation-finished");
+    ROS_INFO("rosPublishActuation-finished");
     ros_publishers_[0]->publish(goal);
     
   }
@@ -194,21 +169,6 @@ public:
 #endif
 
 /*
-***********
-TODO:
-- Nachrichten anpassen
-- Was genau kommt in den vector bei initialDesiredState? Wohin geht er?
--
-
-
-
-***********
-turtle topics:
-/turtle1/cmd_vel
-/turtle1/color_sensor
-/turtle1/desiredpose
-/turtle1/pose
-
 **********
 
 cpn@cpn-pc:~/catkin_ws/src/denmpc/src/user_scenarios$ rostopic echo  /scaled_pos_int_traj_controller/follow_joint_trajectory/goal

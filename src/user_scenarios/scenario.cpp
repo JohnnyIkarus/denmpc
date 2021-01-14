@@ -43,11 +43,9 @@ int main(int argc, char **argv) {
 
 	ur5e->setInitialDesiredState(ur5e_init_xdes);
 	ur5e->setInitialParameter(ur5e_init_p);
-	ur5e->setStateSubscriberRosTopicName       ("/scaled_pos_joint_traj_controller/state");   // /joint_states
-	/*** [ERROR] [1609327773.204441014]: Client [/controller] wants topic /joint_states to have datatype/md5sum [control_msgs/FollowJointTrajectoryGoal/69636787b6ecbde4d61d711979bc7ecb], but our version has [sensor_msgs/JointState/3066dcd76a6cfaef579bd0f34173e9fd]. Dropping connection.
-	 /**/ 
+	ur5e->setStateSubscriberRosTopicName       ("/scaled_pos_joint_traj_controller/state");   // /joint states
 	ur5e->setDesiredStateSubscriberRosTopicName("/scaled_pos_joint_traj_controller/follow_joint_trajectory/goal"); // //scaled_pos_joint_traj_controller/follow_joint_trajectory/goal
-	ur5e->setPublisherRosTopicName             ("/scaled_pos_joint_traj_controller/follow_joint_trajectory"); // /scaled_pos_joint_traj_controller/follow_joint_trajector/scaled_pos_joint_traj_controller/follow_joint_trajectory
+	ur5e->setPublisherRosTopicName             ("/scaled_pos_joint_traj_controller/follow_joint_trajectory"); // /scaled_pos_joint_traj_controller/follow_joint_trajector 
 	agentlist.push_back(ur5e); /*add to agentlist*/
 
 	/****** Initialize Coupling Instances ******/
