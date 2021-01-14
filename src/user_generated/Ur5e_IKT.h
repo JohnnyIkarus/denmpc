@@ -140,7 +140,7 @@ public:
     goal.trajectory.points[ind].positions[5] = u_[5];
     goal.trajectory.points[ind].time_from_start = ros::Duration(5.0); //Zeit für Ausführung
     goal.trajectory.points[ind].velocities.resize(6);
-    for (size_t j = 0; j < 8; ++j)
+    for (size_t j = 0; j < 6; ++j)
     {
       goal.trajectory.points[ind].velocities[j] = 0.5;//1.0; 
     }

@@ -30,7 +30,7 @@ int main(int argc, char **argv) {
 	std::vector<Agent*> agentlist;
 
 
-	//Initialize: Turtle instance: ardrone1
+	//Initialize: Ur5e instance
 	Ur5e_IKT* ur5e = new Ur5e_IKT(agentlist.size());
 	//Ur5e state={x,y,yaw} input={uforward,urotate}
 	//Define penaltys of state Q and inputs R --> woher stammen die Werte?
