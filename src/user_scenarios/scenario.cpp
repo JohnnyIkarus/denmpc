@@ -46,7 +46,7 @@ int main(int argc, char **argv) {
 	ur5e->setInitialParameter(ur5e_init_p);
 	ur5e->setStateSubscriberRosTopicName       ("/scaled_pos_joint_traj_controller/state");   // /joint states
 	ur5e->setDesiredStateSubscriberRosTopicName("/scaled_pos_joint_traj_controller/follow_joint_trajectory/goal"); // //scaled_pos_joint_traj_controller/follow_joint_trajectory/goal
-	ur5e->setPublisherRosTopicName             ("/scaled_pos_joint_traj_controller/follow_joint_trajectory"); // /scaled_pos_joint_traj_controller/follow_joint_trajector 
+	ur5e->setPublisherRosTopicName             ("/scaled_pos_joint_traj_controller/follow_joint_trajectory/goal"); // /scaled_pos_joint_traj_controller/follow_joint_trajector 
 	agentlist.push_back(ur5e); /*add to agentlist*/
 
 	/****** Initialize Coupling Instances ******/

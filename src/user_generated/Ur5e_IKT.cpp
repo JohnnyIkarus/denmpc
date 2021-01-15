@@ -57,7 +57,7 @@ Ur5e_IKT::Ur5e_IKT(int id): Agent(id) {
     //Creating control publisher
     ros::Publisher* pub0 = new ros::Publisher();
     //Starting Advertising
-    *pub0 = ros_node_.advertise<control_msgs::FollowJointTrajectoryAction>("/scaled_pos_joint_traj_controller/follow_joint_trajectory", 1); //TODO: Welches Topic welche NAchricht?
+    *pub0 = ros_node_.advertise<control_msgs::FollowJointTrajectoryAction>("/scaled_pos_joint_traj_controller/follow_joint_trajectory/goal", 1); //TODO: Welches Topic welche NAchricht?
     //Adding publisher to array
     ros_publishers_.push_back(pub0);
 
