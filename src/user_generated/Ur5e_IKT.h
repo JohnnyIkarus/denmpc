@@ -144,7 +144,7 @@ public:
     {
       goal.trajectory.points[ind].velocities[j] = 0.5;//1.0; 
     }
-
+    printf("%f %f %f %f %f %f", u_[0],u_[1],u_[2],u_[3],u_[4],u_[5]);
     ROS_INFO("rosPublishActuation-finished");
     ros_publishers_[0]->publish(goal);
     
