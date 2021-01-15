@@ -38,9 +38,10 @@ int main(int argc, char **argv) {
 		0.0, 0.0, 0.0, 0.0, 0.0, 0.0, /*Q*/
 		1.0, 0.5, 0.0, 0.0, 0.0, 0.0    /*R*/
 	};
+	double ur5e_init_x[] = {1.57, -1.57, 1.57,-1.57,1.57,1.57};
 	//Initial desired Pose
 	double ur5e_init_xdes[] = {1.57, -1.57, 1.57,-1.57,1.57,1.57};
-
+	ur5e->setInitialState(ur5e_init_x);
 	ur5e->setInitialDesiredState(ur5e_init_xdes);
 	ur5e->setInitialParameter(ur5e_init_p);
 	ur5e->setStateSubscriberRosTopicName       ("/scaled_pos_joint_traj_controller/state");   // /joint states
@@ -53,11 +54,11 @@ int main(int argc, char **argv) {
 
 	//Initialize: Controller
 	Cmscgmres* controller1 = new Cmscgmres(agentlist, controllerlist.size());
-	controller1->setHorizonDiskretization(10);
-	controller1->setHorizonLength(1);
-	controller1->setTolerance(1e-8);
-	controller1->setUpdateIntervall(0.01);
-	controller1->setMaximumNumberofIterations(10);
+	//controller1->setHorizonDiskretization(10);
+	//controller1->setHorizonLength(1);
+	//controller1->setTolerance(1e-8);
+	//controller1->setUpdateIntervall(0.01);
+	//controller1->setMaximumNumberofIterations(10);
 	controller1->activateInfo_ControllerStates();
 	//	controller1->activateInfo_ControllerTrace();
 	//	controller1->activateInfo_Controller();

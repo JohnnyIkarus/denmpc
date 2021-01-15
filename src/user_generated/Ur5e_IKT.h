@@ -25,7 +25,6 @@ class Ur5e_IKT: public Agent {
 public:
   Ur5e_IKT(int id = 0);
   Ur5e_IKT(
-    // Strings werden aktuell nicht verwendet
     std::string joint_states, // Aktueller Zustand
     std::string follow_joint_trajectory_goal, // Zielposition
     std::string follow_joint_trajectory, // /scaled_pos_joint_traj_controller/follow_joint_trajectory
@@ -144,7 +143,8 @@ public:
     {
       goal.trajectory.points[ind].velocities[j] = 0.5;//1.0; 
     }
-    printf("%f %f %f %f %f %f", u_[0],u_[1],u_[2],u_[3],u_[4],u_[5]);
+    printf("%f %f %f %f %f %f \n", u_[0],u_[1],u_[2],u_[3],u_[4],u_[5]);
+    printf("%f\n", goal.trajectory.points[ind].positions[0]);
     ROS_INFO("rosPublishActuation-finished");
     ros_publishers_[0]->publish(goal);
     
