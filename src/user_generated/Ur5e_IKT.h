@@ -26,7 +26,7 @@ public:
   Ur5e_IKT(int id = 0);
   Ur5e_IKT(
     std::string joint_states, // Aktueller Zustand
-    std::string follow_joint_trajectory_goal, // Zielposition
+    std::string desiredpose, // Zielposition
     std::string follow_joint_trajectory, // /scaled_pos_joint_traj_controller/follow_joint_trajectory
 
     double* init_x,   //States
@@ -111,43 +111,42 @@ public:
 
   void setPublisherRosTopicName(std::string rostopicname) {
     ros_publishers_[0]->shutdown();
-    *ros_publishers_[0] = ros_node_.advertise<control_msgs::FollowJointTrajectoryGoal>(rostopicname, 1); // --> goal
+    *ros_publishers_[0] = ros_node_.advertise<control_msgs::FollowJointTrajectoryActionGoal>(rostopicname, 1); // --> goal
   };
 
   void rosPublishActuation() {
-    control_msgs::FollowJointTrajectoryGoal goal; 
+    control_msgs::FollowJointTrajectoryActionGoal actionGoal; 
     ROS_INFO("rosPublishActuation");
     // First, the joint names, which apply to all waypoints
-    goal.trajectory.joint_names.push_back("shoulder_pan_joint");
-    goal.trajectory.joint_names.push_back("shoulder_lift_joint");
-    goal.trajectory.joint_names.push_back("elbow_joint");
-    goal.trajectory.joint_names.push_back("wrist_1_joint");
-    goal.trajectory.joint_names.push_back("wrist_2_joint");
-    goal.trajectory.joint_names.push_back("wrist_3_joint");
+    actionGoal.goal.trajectory.joint_names.push_back("shoulder_pan_joint");
+    actionGoal.goal.trajectory.joint_names.push_back("shoulder_lift_joint");
+    actionGoal.goal.trajectory.joint_names.push_back("elbow_joint");
+    actionGoal.goal.trajectory.joint_names.push_back("wrist_1_joint");
+    actionGoal.goal.trajectory.joint_names.push_back("wrist_2_joint");
+    actionGoal.goal.trajectory.joint_names.push_back("wrist_3_joint");
 
-    goal.trajectory.points.resize(1);
+    actionGoal.goal.trajectory.points.resize(1);
 
     // First trajectory point
     // Positions
     int ind = 0;
-    goal.trajectory.points[ind].positions.resize(6); 
-    goal.trajectory.points[ind].positions[0] = u_[0]; // joint_anlges 
-    goal.trajectory.points[ind].positions[1] = u_[1];
-    goal.trajectory.points[ind].positions[2] = u_[2];
-    goal.trajectory.points[ind].positions[3] = u_[3];
-    goal.trajectory.points[ind].positions[4] = u_[4];
-    goal.trajectory.points[ind].positions[5] = u_[5];
-    goal.trajectory.points[ind].time_from_start = ros::Duration(5.0); //Zeit für Ausführung
-    goal.trajectory.points[ind].velocities.resize(6);
+    actionGoal.goal.trajectory.points[ind].positions.resize(6); 
+    actionGoal.goal.trajectory.points[ind].positions[0] = u_[0]; // joint_anlges 
+    actionGoal.goal.trajectory.points[ind].positions[1] = u_[1];
+    actionGoal.goal.trajectory.points[ind].positions[2] = u_[2];
+    actionGoal.goal.trajectory.points[ind].positions[3] = u_[3];
+    actionGoal.goal.trajectory.points[ind].positions[4] = u_[4];
+    actionGoal.goal.trajectory.points[ind].positions[5] = u_[5];
+    actionGoal.goal.trajectory.points[ind].time_from_start = ros::Duration(5.0); //Zeit für Ausführung
+    actionGoal.goal.trajectory.points[ind].velocities.resize(6);
     for (size_t j = 0; j < 6; ++j)
     {
-      goal.trajectory.points[ind].velocities[j] = 0.5;//1.0; 
+     actionGoal.goal.trajectory.points[ind].velocities[j] = 0.5;//1.0; 
     }
     printf("%f %f %f %f %f %f \n", u_[0],u_[1],u_[2],u_[3],u_[4],u_[5]);
-    printf("%f\n", goal.trajectory.points[ind].positions[0]);
+    printf("%f\n", actionGoal.goal.trajectory.points[ind].positions[0]);
     ROS_INFO("rosPublishActuation-finished");
-    ros_publishers_[0]->publish(goal);
-    
+    ros_publishers_[0]->publish(actionGoal);
   }
 
   void f(double  *out, double t, double *x, double *u, double *d, double *p);

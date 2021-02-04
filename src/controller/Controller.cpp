@@ -67,9 +67,9 @@ void Controller::getMeasurements(){
 
 void Controller::applyAction(){
 	printf("Apply Action started\n");
-	printf("%i", agentlist_.size());
+	
 	for(int it_agent=0;it_agent<agentlist_.size();it_agent++){
-		
+		printf("u_conc_[%i] = %f %f %f %f %f /n", sizeof(u_conc_), u_conc_[0],u_conc_[1],u_conc_[2],u_conc_[3],u_conc_[4],u_conc_[5]);
 		tmp_agent_ptr_=agentlist_[it_agent];
 		tmp_agent_ptr_->setControl(u_conc_+tmp_agent_ptr_->index_u_);
 		tmp_agent_ptr_->rosPublishActuation();

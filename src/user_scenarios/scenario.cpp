@@ -32,20 +32,21 @@ int main(int argc, char **argv) {
 
 	//Initialize: Ur5e instance
 	Ur5e_IKT* ur5e = new Ur5e_IKT(agentlist.size());
-	//Ur5e state={x,y,yaw} input={uforward,urotate}
+	//Ur5e state={6 joint states} input={uforward,urotate}
 	//Define penaltys of state Q and inputs R --> woher stammen die Werte?
 	double ur5e_init_p[] = {
+		-0.5092,1.458,-1,1,-5,1.3,
 		0.0, 0.0, 0.0, 0.0, 0.0, 0.0, /*Q*/
-		1.0, 0.5, 0.0, 0.0, 0.0, 0.0    /*R*/
+		1.0, 0.5    /*R*/
 	};
-	double ur5e_init_x[] = {1.57, -1.57, 1.57,-1.57,1.57,1.57};
+	//double ur5e_init_x[] = {1.57, -1.57, 1.57,-1.57,1.57,1.57};
 	//Initial desired Pose
 	double ur5e_init_xdes[] = {1.57, -1.57, 1.57,-1.57,1.57,1.57};
-	ur5e->setInitialState(ur5e_init_x);
+	//ur5e->setInitialState(ur5e_init_x);
 	ur5e->setInitialDesiredState(ur5e_init_xdes);
 	ur5e->setInitialParameter(ur5e_init_p);
 	ur5e->setStateSubscriberRosTopicName       ("/scaled_pos_joint_traj_controller/state");   // /joint states
-	ur5e->setDesiredStateSubscriberRosTopicName("/scaled_pos_joint_traj_controller/follow_joint_trajectory/goal"); // //scaled_pos_joint_traj_controller/follow_joint_trajectory/goal
+	ur5e->setDesiredStateSubscriberRosTopicName("/scaled_pos_joint_traj_controller/desiredpose"); // //scaled_pos_joint_traj_controller/follow_joint_trajectory/goal
 	ur5e->setPublisherRosTopicName             ("/scaled_pos_joint_traj_controller/follow_joint_trajectory/goal"); // /scaled_pos_joint_traj_controller/follow_joint_trajector 
 	agentlist.push_back(ur5e); /*add to agentlist*/
 

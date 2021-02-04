@@ -23,7 +23,7 @@ Ur5e_IKT::Ur5e_IKT(int id): Agent(id) {
     dim_udes_ = 6;  //Desired Controls
     dim_y_ = 0;
     dim_ydes_ = 0;
-    dim_p_ = 5;     // Parameters: was genau sind das?
+    dim_p_ = 15;     // Parameters: was genau sind das?
     dim_d_ = 0;     //Disturbance
     dim_l_ = 1;     // ?
     dim_v_ = 1;     // ?
@@ -57,7 +57,7 @@ Ur5e_IKT::Ur5e_IKT(int id): Agent(id) {
     //Creating control publisher
     ros::Publisher* pub0 = new ros::Publisher();
     //Starting Advertising
-    *pub0 = ros_node_.advertise<control_msgs::FollowJointTrajectoryAction>("/scaled_pos_joint_traj_controller/follow_joint_trajectory/goal", 1); //TODO: Welches Topic welche NAchricht?
+    *pub0 = ros_node_.advertise<control_msgs::FollowJointTrajectoryAction>("/scaled_pos_joint_traj_controller/follow_joint_trajectory", 1); //TODO: Welches Topic welche NAchricht?
     //Adding publisher to array
     ros_publishers_.push_back(pub0);
 
@@ -70,7 +70,7 @@ Ur5e_IKT::Ur5e_IKT(int id): Agent(id) {
     //Creating subscriber
     ros::Subscriber* sub1 = new ros::Subscriber();
     //Starting subscription
-    *sub1 = ros_node_.subscribe("/scaled_pos_joint_traj_controller/follow_joint_trajectory/goal", 1, &Ur5e_IKT::subDesiredStateCallback, this);//TODO: Welches Topic welche NAchricht?
+    *sub1 = ros_node_.subscribe("/scaled_pos_joint_traj_controller/follow_joint_trajectory/action_topics", 1, &Ur5e_IKT::subDesiredStateCallback, this);//TODO: Welches Topic welche NAchricht?
     //Adding subscriber to array
     ros_desired_state_subscribers_.push_back(sub1);
 }
