@@ -56,6 +56,12 @@
         "random": "cpp",
         "set": "cpp",
         "string": "cpp",
-        "string_view": "cpp"
+        "string_view": "cpp",
+        "csignal": "cpp",
+        "condition_variable": "cpp",
+        "future": "cpp",
+        "mutex": "cpp",
+        "typeindex": "cpp",
+        "codecvt": "cpp"
     }
 }
