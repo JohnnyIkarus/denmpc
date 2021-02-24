@@ -1,0 +1,2 @@
+/usr/bin/ar qc libstateSpace.a  CMakeFiles/stateSpace.dir/SimulateSystem.cpp.o
+/usr/bin/ranlib libstateSpace.a

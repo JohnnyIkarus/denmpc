@@ -123,6 +123,19 @@ SimpleController/fast:
 	$(MAKE) -f CMakeFiles/SimpleController.dir/build.make CMakeFiles/SimpleController.dir/build
 .PHONY : SimpleController/fast
 
+#=============================================================================
+# Target rules for targets named stateSpace
+
+# Build rule for target.
+stateSpace: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 stateSpace
+.PHONY : stateSpace
+
+# fast build rule for target.
+stateSpace/fast:
+	$(MAKE) -f stateSpace/CMakeFiles/stateSpace.dir/build.make stateSpace/CMakeFiles/stateSpace.dir/build
+.PHONY : stateSpace/fast
+
 SimpleController.o: SimpleController.cpp.o
 
 .PHONY : SimpleController.o
@@ -159,6 +172,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... SimpleController"
 	@echo "... edit_cache"
+	@echo "... stateSpace"
 	@echo "... SimpleController.o"
 	@echo "... SimpleController.i"
 	@echo "... SimpleController.s"

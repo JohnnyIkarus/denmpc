@@ -1,1 +1,1 @@
-/usr/lib/ccache/c++     CMakeFiles/SimpleController.dir/SimpleController.cpp.o  -o SimpleController -Wl,-rpath,/usr/local/lib /usr/local/lib/librtde.so.1.3.8 /usr/lib/x86_64-linux-gnu/libboost_system.so /usr/lib/x86_64-linux-gnu/libboost_thread.so -lpthread 
+/usr/lib/ccache/c++     CMakeFiles/SimpleController.dir/SimpleController.cpp.o  -o SimpleController -Wl,-rpath,/usr/local/lib stateSpace/libstateSpace.a /usr/local/lib/librtde.so.1.3.8 /usr/lib/x86_64-linux-gnu/libboost_system.so /usr/lib/x86_64-linux-gnu/libboost_thread.so -lpthread 

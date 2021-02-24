@@ -90,6 +90,7 @@ SimpleController_EXTERNAL_OBJECTS =
 
 SimpleController: CMakeFiles/SimpleController.dir/SimpleController.cpp.o
 SimpleController: CMakeFiles/SimpleController.dir/build.make
+SimpleController: stateSpace/libstateSpace.a
 SimpleController: /usr/local/lib/librtde.so.1.3.8
 SimpleController: /usr/lib/x86_64-linux-gnu/libboost_system.so
 SimpleController: /usr/lib/x86_64-linux-gnu/libboost_thread.so

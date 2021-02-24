@@ -63,7 +63,7 @@ CMAKE_BINARY_DIR = /home/johnny/catkin_ws/src/denmpc/src/controller
 # Target rules for target CMakeFiles/SimpleController.dir
 
 # All Build rule for target.
-CMakeFiles/SimpleController.dir/all:
+CMakeFiles/SimpleController.dir/all: stateSpace/CMakeFiles/stateSpace.dir/all
 	$(MAKE) -f CMakeFiles/SimpleController.dir/build.make CMakeFiles/SimpleController.dir/depend
 	$(MAKE) -f CMakeFiles/SimpleController.dir/build.make CMakeFiles/SimpleController.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles --progress-num=1,2 "Built target SimpleController"
@@ -76,7 +76,7 @@ all: CMakeFiles/SimpleController.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/SimpleController.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/SimpleController.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles 0
 .PHONY : CMakeFiles/SimpleController.dir/rule
@@ -93,6 +93,61 @@ CMakeFiles/SimpleController.dir/clean:
 
 # clean rule for target.
 clean: CMakeFiles/SimpleController.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory stateSpace
+
+# Convenience name for "all" pass in the directory.
+stateSpace/all: stateSpace/CMakeFiles/stateSpace.dir/all
+
+.PHONY : stateSpace/all
+
+# Convenience name for "clean" pass in the directory.
+stateSpace/clean: stateSpace/CMakeFiles/stateSpace.dir/clean
+
+.PHONY : stateSpace/clean
+
+# Convenience name for "preinstall" pass in the directory.
+stateSpace/preinstall:
+
+.PHONY : stateSpace/preinstall
+
+#=============================================================================
+# Target rules for target stateSpace/CMakeFiles/stateSpace.dir
+
+# All Build rule for target.
+stateSpace/CMakeFiles/stateSpace.dir/all:
+	$(MAKE) -f stateSpace/CMakeFiles/stateSpace.dir/build.make stateSpace/CMakeFiles/stateSpace.dir/depend
+	$(MAKE) -f stateSpace/CMakeFiles/stateSpace.dir/build.make stateSpace/CMakeFiles/stateSpace.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles --progress-num=3,4 "Built target stateSpace"
+.PHONY : stateSpace/CMakeFiles/stateSpace.dir/all
+
+# Include target in all.
+all: stateSpace/CMakeFiles/stateSpace.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+stateSpace/CMakeFiles/stateSpace.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 stateSpace/CMakeFiles/stateSpace.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles 0
+.PHONY : stateSpace/CMakeFiles/stateSpace.dir/rule
+
+# Convenience name for target.
+stateSpace: stateSpace/CMakeFiles/stateSpace.dir/rule
+
+.PHONY : stateSpace
+
+# clean rule for target.
+stateSpace/CMakeFiles/stateSpace.dir/clean:
+	$(MAKE) -f stateSpace/CMakeFiles/stateSpace.dir/build.make stateSpace/CMakeFiles/stateSpace.dir/clean
+.PHONY : stateSpace/CMakeFiles/stateSpace.dir/clean
+
+# clean rule for target.
+clean: stateSpace/CMakeFiles/stateSpace.dir/clean
 
 .PHONY : clean
 

@@ -28,28 +28,31 @@ The CXX compiler identification is GNU, found in "/home/johnny/catkin_ws/src/den
 Determining if the C compiler works passed with the following output:
 Change Dir: /home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_a3510/fast"
-/usr/bin/make -f CMakeFiles/cmTC_a3510.dir/build.make CMakeFiles/cmTC_a3510.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_3d5d1/fast"
 make[1]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird betreten
-Building C object CMakeFiles/cmTC_a3510.dir/testCCompiler.c.o
-/usr/lib/ccache/cc    -o CMakeFiles/cmTC_a3510.dir/testCCompiler.c.o   -c /home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_a3510
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a3510.dir/link.txt --verbose=1
-/usr/lib/ccache/cc      CMakeFiles/cmTC_a3510.dir/testCCompiler.c.o  -o cmTC_a3510 
+/usr/bin/make -f CMakeFiles/cmTC_3d5d1.dir/build.make CMakeFiles/cmTC_3d5d1.dir/build
+make[2]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird betreten
+Building C object CMakeFiles/cmTC_3d5d1.dir/testCCompiler.c.o
+/usr/lib/ccache/cc    -o CMakeFiles/cmTC_3d5d1.dir/testCCompiler.c.o   -c /home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_3d5d1
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3d5d1.dir/link.txt --verbose=1
+/usr/lib/ccache/cc      CMakeFiles/cmTC_3d5d1.dir/testCCompiler.c.o  -o cmTC_3d5d1 
+make[2]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird verlassen
 make[1]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird verlassen
 
 
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: /home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_e151c/fast"
-/usr/bin/make -f CMakeFiles/cmTC_e151c.dir/build.make CMakeFiles/cmTC_e151c.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_208ee/fast"
 make[1]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird betreten
-Building C object CMakeFiles/cmTC_e151c.dir/CMakeCCompilerABI.c.o
-/usr/lib/ccache/cc    -o CMakeFiles/cmTC_e151c.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c
-Linking C executable cmTC_e151c
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e151c.dir/link.txt --verbose=1
-/usr/lib/ccache/cc     -v CMakeFiles/cmTC_e151c.dir/CMakeCCompilerABI.c.o  -o cmTC_e151c 
+/usr/bin/make -f CMakeFiles/cmTC_208ee.dir/build.make CMakeFiles/cmTC_208ee.dir/build
+make[2]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird betreten
+Building C object CMakeFiles/cmTC_208ee.dir/CMakeCCompilerABI.c.o
+/usr/lib/ccache/cc    -o CMakeFiles/cmTC_208ee.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_208ee
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_208ee.dir/link.txt --verbose=1
+/usr/lib/ccache/cc     -v CMakeFiles/cmTC_208ee.dir/CMakeCCompilerABI.c.o  -o cmTC_208ee 
 Using built-in specs.
 COLLECT_GCC=/usr/bin/cc
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper
@@ -61,9 +64,10 @@ Thread model: posix
 gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_e151c' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccjnJ3pH.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_e151c /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_e151c.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_e151c' '-mtune=generic' '-march=x86-64'
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_208ee' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccBTHHKm.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_208ee /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_208ee.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_208ee' '-mtune=generic' '-march=x86-64'
+make[2]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird verlassen
 make[1]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird verlassen
 
 
@@ -71,14 +75,15 @@ Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_e151c/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_e151c.dir/build.make CMakeFiles/cmTC_e151c.dir/build]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_208ee/fast"]
   ignore line: [make[1]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird betreten]
-  ignore line: [Building C object CMakeFiles/cmTC_e151c.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/usr/lib/ccache/cc    -o CMakeFiles/cmTC_e151c.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c]
-  ignore line: [Linking C executable cmTC_e151c]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e151c.dir/link.txt --verbose=1]
-  ignore line: [/usr/lib/ccache/cc     -v CMakeFiles/cmTC_e151c.dir/CMakeCCompilerABI.c.o  -o cmTC_e151c ]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_208ee.dir/build.make CMakeFiles/cmTC_208ee.dir/build]
+  ignore line: [make[2]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird betreten]
+  ignore line: [Building C object CMakeFiles/cmTC_208ee.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/lib/ccache/cc    -o CMakeFiles/cmTC_208ee.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_208ee]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_208ee.dir/link.txt --verbose=1]
+  ignore line: [/usr/lib/ccache/cc     -v CMakeFiles/cmTC_208ee.dir/CMakeCCompilerABI.c.o  -o cmTC_208ee ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/cc]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper]
@@ -90,13 +95,13 @@ Parsed C implicit link information from above output:
   ignore line: [gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_e151c' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccjnJ3pH.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_e151c /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_e151c.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_208ee' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccBTHHKm.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_208ee /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_208ee.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccjnJ3pH.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccBTHHKm.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -114,7 +119,7 @@ Parsed C implicit link information from above output:
     arg [-znow] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_e151c] ==> ignore
+    arg [cmTC_208ee] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o] ==> ignore
@@ -126,7 +131,7 @@ Parsed C implicit link information from above output:
     arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/7/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../..]
-    arg [CMakeFiles/cmTC_e151c.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_208ee.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [--push-state] ==> ignore
     arg [--as-needed] ==> ignore
@@ -158,14 +163,16 @@ Parsed C implicit link information from above output:
 Detecting C [-std=c11] compiler features compiled with the following output:
 Change Dir: /home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_e0f12/fast"
-/usr/bin/make -f CMakeFiles/cmTC_e0f12.dir/build.make CMakeFiles/cmTC_e0f12.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_4b639/fast"
 make[1]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird betreten
-Building C object CMakeFiles/cmTC_e0f12.dir/feature_tests.c.o
-/usr/lib/ccache/cc   -std=c11 -o CMakeFiles/cmTC_e0f12.dir/feature_tests.c.o   -c /home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/feature_tests.c
-Linking C executable cmTC_e0f12
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e0f12.dir/link.txt --verbose=1
-/usr/lib/ccache/cc      CMakeFiles/cmTC_e0f12.dir/feature_tests.c.o  -o cmTC_e0f12 
+/usr/bin/make -f CMakeFiles/cmTC_4b639.dir/build.make CMakeFiles/cmTC_4b639.dir/build
+make[2]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird betreten
+Building C object CMakeFiles/cmTC_4b639.dir/feature_tests.c.o
+/usr/lib/ccache/cc   -std=c11 -o CMakeFiles/cmTC_4b639.dir/feature_tests.c.o   -c /home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/feature_tests.c
+Linking C executable cmTC_4b639
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4b639.dir/link.txt --verbose=1
+/usr/lib/ccache/cc      CMakeFiles/cmTC_4b639.dir/feature_tests.c.o  -o cmTC_4b639 
+make[2]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird verlassen
 make[1]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird verlassen
 
 
@@ -178,14 +185,16 @@ make[1]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFi
 Detecting C [-std=c99] compiler features compiled with the following output:
 Change Dir: /home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_0c0dc/fast"
-/usr/bin/make -f CMakeFiles/cmTC_0c0dc.dir/build.make CMakeFiles/cmTC_0c0dc.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_7eb89/fast"
 make[1]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird betreten
-Building C object CMakeFiles/cmTC_0c0dc.dir/feature_tests.c.o
-/usr/lib/ccache/cc   -std=c99 -o CMakeFiles/cmTC_0c0dc.dir/feature_tests.c.o   -c /home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/feature_tests.c
-Linking C executable cmTC_0c0dc
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0c0dc.dir/link.txt --verbose=1
-/usr/lib/ccache/cc      CMakeFiles/cmTC_0c0dc.dir/feature_tests.c.o  -o cmTC_0c0dc 
+/usr/bin/make -f CMakeFiles/cmTC_7eb89.dir/build.make CMakeFiles/cmTC_7eb89.dir/build
+make[2]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird betreten
+Building C object CMakeFiles/cmTC_7eb89.dir/feature_tests.c.o
+/usr/lib/ccache/cc   -std=c99 -o CMakeFiles/cmTC_7eb89.dir/feature_tests.c.o   -c /home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/feature_tests.c
+Linking C executable cmTC_7eb89
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7eb89.dir/link.txt --verbose=1
+/usr/lib/ccache/cc      CMakeFiles/cmTC_7eb89.dir/feature_tests.c.o  -o cmTC_7eb89 
+make[2]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird verlassen
 make[1]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird verlassen
 
 
@@ -198,14 +207,16 @@ make[1]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFi
 Detecting C [-std=c90] compiler features compiled with the following output:
 Change Dir: /home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_a90b5/fast"
-/usr/bin/make -f CMakeFiles/cmTC_a90b5.dir/build.make CMakeFiles/cmTC_a90b5.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_fbbd0/fast"
 make[1]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird betreten
-Building C object CMakeFiles/cmTC_a90b5.dir/feature_tests.c.o
-/usr/lib/ccache/cc   -std=c90 -o CMakeFiles/cmTC_a90b5.dir/feature_tests.c.o   -c /home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/feature_tests.c
-Linking C executable cmTC_a90b5
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a90b5.dir/link.txt --verbose=1
-/usr/lib/ccache/cc      CMakeFiles/cmTC_a90b5.dir/feature_tests.c.o  -o cmTC_a90b5 
+/usr/bin/make -f CMakeFiles/cmTC_fbbd0.dir/build.make CMakeFiles/cmTC_fbbd0.dir/build
+make[2]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird betreten
+Building C object CMakeFiles/cmTC_fbbd0.dir/feature_tests.c.o
+/usr/lib/ccache/cc   -std=c90 -o CMakeFiles/cmTC_fbbd0.dir/feature_tests.c.o   -c /home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/feature_tests.c
+Linking C executable cmTC_fbbd0
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fbbd0.dir/link.txt --verbose=1
+/usr/lib/ccache/cc      CMakeFiles/cmTC_fbbd0.dir/feature_tests.c.o  -o cmTC_fbbd0 
+make[2]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird verlassen
 make[1]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird verlassen
 
 
@@ -216,28 +227,31 @@ make[1]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFi
 Determining if the CXX compiler works passed with the following output:
 Change Dir: /home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_5fb42/fast"
-/usr/bin/make -f CMakeFiles/cmTC_5fb42.dir/build.make CMakeFiles/cmTC_5fb42.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_ff0bd/fast"
 make[1]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird betreten
-Building CXX object CMakeFiles/cmTC_5fb42.dir/testCXXCompiler.cxx.o
-/usr/lib/ccache/c++     -o CMakeFiles/cmTC_5fb42.dir/testCXXCompiler.cxx.o -c /home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_5fb42
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5fb42.dir/link.txt --verbose=1
-/usr/lib/ccache/c++       CMakeFiles/cmTC_5fb42.dir/testCXXCompiler.cxx.o  -o cmTC_5fb42 
+/usr/bin/make -f CMakeFiles/cmTC_ff0bd.dir/build.make CMakeFiles/cmTC_ff0bd.dir/build
+make[2]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird betreten
+Building CXX object CMakeFiles/cmTC_ff0bd.dir/testCXXCompiler.cxx.o
+/usr/lib/ccache/c++     -o CMakeFiles/cmTC_ff0bd.dir/testCXXCompiler.cxx.o -c /home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_ff0bd
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ff0bd.dir/link.txt --verbose=1
+/usr/lib/ccache/c++       CMakeFiles/cmTC_ff0bd.dir/testCXXCompiler.cxx.o  -o cmTC_ff0bd 
+make[2]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird verlassen
 make[1]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird verlassen
 
 
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: /home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_49c3c/fast"
-/usr/bin/make -f CMakeFiles/cmTC_49c3c.dir/build.make CMakeFiles/cmTC_49c3c.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_60545/fast"
 make[1]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird betreten
-Building CXX object CMakeFiles/cmTC_49c3c.dir/CMakeCXXCompilerABI.cpp.o
-/usr/lib/ccache/c++     -o CMakeFiles/cmTC_49c3c.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTC_49c3c
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_49c3c.dir/link.txt --verbose=1
-/usr/lib/ccache/c++      -v CMakeFiles/cmTC_49c3c.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_49c3c 
+/usr/bin/make -f CMakeFiles/cmTC_60545.dir/build.make CMakeFiles/cmTC_60545.dir/build
+make[2]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird betreten
+Building CXX object CMakeFiles/cmTC_60545.dir/CMakeCXXCompilerABI.cpp.o
+/usr/lib/ccache/c++     -o CMakeFiles/cmTC_60545.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_60545
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_60545.dir/link.txt --verbose=1
+/usr/lib/ccache/c++      -v CMakeFiles/cmTC_60545.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_60545 
 Using built-in specs.
 COLLECT_GCC=/usr/bin/c++
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper
@@ -249,9 +263,10 @@ Thread model: posix
 gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_49c3c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccTTt33a.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_49c3c /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_49c3c.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_49c3c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_60545' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccUhCe9T.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_60545 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_60545.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_60545' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+make[2]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird verlassen
 make[1]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird verlassen
 
 
@@ -259,14 +274,15 @@ Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_49c3c/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_49c3c.dir/build.make CMakeFiles/cmTC_49c3c.dir/build]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_60545/fast"]
   ignore line: [make[1]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird betreten]
-  ignore line: [Building CXX object CMakeFiles/cmTC_49c3c.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/lib/ccache/c++     -o CMakeFiles/cmTC_49c3c.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Linking CXX executable cmTC_49c3c]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_49c3c.dir/link.txt --verbose=1]
-  ignore line: [/usr/lib/ccache/c++      -v CMakeFiles/cmTC_49c3c.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_49c3c ]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_60545.dir/build.make CMakeFiles/cmTC_60545.dir/build]
+  ignore line: [make[2]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird betreten]
+  ignore line: [Building CXX object CMakeFiles/cmTC_60545.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/lib/ccache/c++     -o CMakeFiles/cmTC_60545.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_60545]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_60545.dir/link.txt --verbose=1]
+  ignore line: [/usr/lib/ccache/c++      -v CMakeFiles/cmTC_60545.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_60545 ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/c++]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper]
@@ -278,13 +294,13 @@ Parsed CXX implicit link information from above output:
   ignore line: [gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_49c3c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccTTt33a.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_49c3c /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_49c3c.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_60545' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccUhCe9T.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_60545 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_60545.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccTTt33a.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccUhCe9T.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -302,7 +318,7 @@ Parsed CXX implicit link information from above output:
     arg [-znow] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_49c3c] ==> ignore
+    arg [cmTC_60545] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o] ==> ignore
@@ -314,7 +330,7 @@ Parsed CXX implicit link information from above output:
     arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/7/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../..]
-    arg [CMakeFiles/cmTC_49c3c.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_60545.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -342,14 +358,16 @@ Parsed CXX implicit link information from above output:
 Detecting CXX [-std=c++1z] compiler features compiled with the following output:
 Change Dir: /home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_7da24/fast"
-/usr/bin/make -f CMakeFiles/cmTC_7da24.dir/build.make CMakeFiles/cmTC_7da24.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_0f3e3/fast"
 make[1]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird betreten
-Building CXX object CMakeFiles/cmTC_7da24.dir/feature_tests.cxx.o
-/usr/lib/ccache/c++    -std=c++1z -o CMakeFiles/cmTC_7da24.dir/feature_tests.cxx.o -c /home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_7da24
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7da24.dir/link.txt --verbose=1
-/usr/lib/ccache/c++       CMakeFiles/cmTC_7da24.dir/feature_tests.cxx.o  -o cmTC_7da24 
+/usr/bin/make -f CMakeFiles/cmTC_0f3e3.dir/build.make CMakeFiles/cmTC_0f3e3.dir/build
+make[2]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird betreten
+Building CXX object CMakeFiles/cmTC_0f3e3.dir/feature_tests.cxx.o
+/usr/lib/ccache/c++    -std=c++1z -o CMakeFiles/cmTC_0f3e3.dir/feature_tests.cxx.o -c /home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_0f3e3
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0f3e3.dir/link.txt --verbose=1
+/usr/lib/ccache/c++       CMakeFiles/cmTC_0f3e3.dir/feature_tests.cxx.o  -o cmTC_0f3e3 
+make[2]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird verlassen
 make[1]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird verlassen
 
 
@@ -415,14 +433,16 @@ make[1]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFi
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
 Change Dir: /home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_b53b6/fast"
-/usr/bin/make -f CMakeFiles/cmTC_b53b6.dir/build.make CMakeFiles/cmTC_b53b6.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_d34e4/fast"
 make[1]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird betreten
-Building CXX object CMakeFiles/cmTC_b53b6.dir/feature_tests.cxx.o
-/usr/lib/ccache/c++    -std=c++14 -o CMakeFiles/cmTC_b53b6.dir/feature_tests.cxx.o -c /home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_b53b6
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b53b6.dir/link.txt --verbose=1
-/usr/lib/ccache/c++       CMakeFiles/cmTC_b53b6.dir/feature_tests.cxx.o  -o cmTC_b53b6 
+/usr/bin/make -f CMakeFiles/cmTC_d34e4.dir/build.make CMakeFiles/cmTC_d34e4.dir/build
+make[2]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird betreten
+Building CXX object CMakeFiles/cmTC_d34e4.dir/feature_tests.cxx.o
+/usr/lib/ccache/c++    -std=c++14 -o CMakeFiles/cmTC_d34e4.dir/feature_tests.cxx.o -c /home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_d34e4
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d34e4.dir/link.txt --verbose=1
+/usr/lib/ccache/c++       CMakeFiles/cmTC_d34e4.dir/feature_tests.cxx.o  -o cmTC_d34e4 
+make[2]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird verlassen
 make[1]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird verlassen
 
 
@@ -488,14 +508,16 @@ make[1]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFi
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
 Change Dir: /home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_6dcaa/fast"
-/usr/bin/make -f CMakeFiles/cmTC_6dcaa.dir/build.make CMakeFiles/cmTC_6dcaa.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_5fd84/fast"
 make[1]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird betreten
-Building CXX object CMakeFiles/cmTC_6dcaa.dir/feature_tests.cxx.o
-/usr/lib/ccache/c++    -std=c++11 -o CMakeFiles/cmTC_6dcaa.dir/feature_tests.cxx.o -c /home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_6dcaa
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6dcaa.dir/link.txt --verbose=1
-/usr/lib/ccache/c++       CMakeFiles/cmTC_6dcaa.dir/feature_tests.cxx.o  -o cmTC_6dcaa 
+/usr/bin/make -f CMakeFiles/cmTC_5fd84.dir/build.make CMakeFiles/cmTC_5fd84.dir/build
+make[2]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird betreten
+Building CXX object CMakeFiles/cmTC_5fd84.dir/feature_tests.cxx.o
+/usr/lib/ccache/c++    -std=c++11 -o CMakeFiles/cmTC_5fd84.dir/feature_tests.cxx.o -c /home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_5fd84
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5fd84.dir/link.txt --verbose=1
+/usr/lib/ccache/c++       CMakeFiles/cmTC_5fd84.dir/feature_tests.cxx.o  -o cmTC_5fd84 
+make[2]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird verlassen
 make[1]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird verlassen
 
 
@@ -561,14 +583,16 @@ make[1]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFi
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
 Change Dir: /home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_52b01/fast"
-/usr/bin/make -f CMakeFiles/cmTC_52b01.dir/build.make CMakeFiles/cmTC_52b01.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_0f302/fast"
 make[1]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird betreten
-Building CXX object CMakeFiles/cmTC_52b01.dir/feature_tests.cxx.o
-/usr/lib/ccache/c++    -std=c++98 -o CMakeFiles/cmTC_52b01.dir/feature_tests.cxx.o -c /home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_52b01
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_52b01.dir/link.txt --verbose=1
-/usr/lib/ccache/c++       CMakeFiles/cmTC_52b01.dir/feature_tests.cxx.o  -o cmTC_52b01 
+/usr/bin/make -f CMakeFiles/cmTC_0f302.dir/build.make CMakeFiles/cmTC_0f302.dir/build
+make[2]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird betreten
+Building CXX object CMakeFiles/cmTC_0f302.dir/feature_tests.cxx.o
+/usr/lib/ccache/c++    -std=c++98 -o CMakeFiles/cmTC_0f302.dir/feature_tests.cxx.o -c /home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_0f302
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0f302.dir/link.txt --verbose=1
+/usr/lib/ccache/c++       CMakeFiles/cmTC_0f302.dir/feature_tests.cxx.o  -o cmTC_0f302 
+make[2]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird verlassen
 make[1]: Verzeichnis „/home/johnny/catkin_ws/src/denmpc/src/controller/CMakeFiles/CMakeTmp“ wird verlassen
 
 

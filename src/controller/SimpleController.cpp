@@ -3,50 +3,29 @@
 
 #include <chrono>
 #include <thread>
+#include "stateSpace/SimulateSystem.h"
+#include <iostream>
+#include <eigen3/Eigen/Dense>
+#include <tuple>
+#include <fstream>
+#include <chrono> //used to time the code
 
 using namespace ur_rtde;
 using namespace std::chrono;
+using namespace Eigen;
+using namespace std;
 
 int main(int argc, char *argv[])
 {
-    RTDEControlInterface rtde_control("127.0.0.1");
-    RTDEReceiveInterface rtde_receive("127.0.0.1");
-    std::vector<double> init_q = rtde_receive.getActualQ();
+    string path_to_csv = "csv/";
+    SimulateSystem Simulation3;
+	Simulation3.openFromFile(path_to_csv + "AFile.csv", path_to_csv + "BFile.csv", path_to_csv + "CFile.csv",path_to_csv + "DFile.csv", path_to_csv +"x0File.csv",path_to_csv + "inputFile.csv");
+	
+	std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
+	Simulation3.runSimulation();
+	std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
 
-    int A[2][2] = {{0, 0},
-                   {1, 0}};
-    int B[2][1] = {{1}, {0}};
-    int C[2] = {0, 1};
-    int D = 0;
-    float Ts = 0.002; //sample Time
-    float Tstop = 20;
-    float steps = Tstop / Ts;
-    int n = 5;
-
-    int max_vel = 3;
-    float startpos[6] = {-1.57, -1.57, 1.57, 0, 0, 0};
-    std::vector<double> joint_q = {-1.54, -1.83, -2.28, -0.59, 1.60, 0.023};
-    std::vector<double> joint_speed = {1.0, 0.0, 0.0, 0.0, 0.0, 0.0};
-    rtde_control.moveJ(joint_q);
-    /*
-    MATLAB CODE:
-
-    cplant = ss(A,B,C,D);
-    cplant.InputDelay = 0.004;
-    cplant.OutputDelay = 0.004;
-
-    opt = c2dOptions('Method','tustin','FractDelayApproxOrder',3); 
-    dplant = c2d(cplant,Ts,opt); %discrete
-    */
-    // Wie in c++ state space model definieren? und wie diskretisieren?
-
-    //Bewegen des Roboters 
-    for(unsigned int i = 0; i <= steps; i++){
-        rtde_control.speedJ(joint_speed, 0.5, 0.0001);
-    }
-
-    rtde_control.speedStop();
-    rtde_control.stopScript();
-
+	std::cout << "Time difference = " << std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count() << "[micro seconds]" << std::endl;
+	Simulation3.saveData(path_to_csv +"AFileOutput.csv", path_to_csv +"BFileOutput.csv",path_to_csv + "CFileOutput.csv", path_to_csv +"DFileOutput.csv",path_to_csv +"x0FileOutput.csv",path_to_csv + "inputSequenceFileOutput.csv", path_to_csv +"simulatedStateSequenceFileOutput.csv", path_to_csv +"simulatedOutputSequenceFileOutput.csv");
     return 0;
 }
